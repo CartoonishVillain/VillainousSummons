@@ -14,7 +14,7 @@ public class RenderSlimeMount extends MobRenderer<SlimeMount, SlimeModel<SlimeMo
 
 
     public RenderSlimeMount(EntityRendererManager p_i50961_1_) {
-        super(p_i50961_1_, new SlimeModel<>(0), 0.5f);
+        super(p_i50961_1_, new SlimeModel<>(3), 0.5f);
     }
 
     @Override

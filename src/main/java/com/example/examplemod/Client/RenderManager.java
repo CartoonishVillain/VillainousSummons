@@ -13,5 +13,6 @@ public class RenderManager {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event){
             RenderingRegistry.registerEntityRenderingHandler(Register.SLIMEMOUNT.get(), RenderSlimeMount::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.HORSEMOUNT.get(), RenderHorseMount::new);
         }
 }

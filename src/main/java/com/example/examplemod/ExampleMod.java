@@ -1,25 +1,20 @@
 package com.example.examplemod;
 
+import com.example.examplemod.Entities.HorseMount;
 import com.example.examplemod.Entities.SlimeMount;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("aotc")
@@ -50,7 +45,7 @@ public class ExampleMod
     {
         DeferredWorkQueue.runLater(() -> {
             GlobalEntityTypeAttributes.put(Register.SLIMEMOUNT.get(), SlimeMount.customAttributes().build());
-
+            GlobalEntityTypeAttributes.put(Register.HORSEMOUNT.get(), HorseMount.customAttributes().build());
         });
     }
 
@@ -70,7 +65,7 @@ public class ExampleMod
     }
 //    // You can use SubscribeEvent and let the Event Bus discover methods to call
 //    @SubscribeEvent
-//    public void onServerStarting(FMLServerStartingEvent event) {
+//    public void onServerStarting(FMLServerStartingEvent Event) {
 //        // do something when the server starts
 //        LOGGER.info("HELLO from server starting");
 //    }
@@ -85,4 +80,11 @@ public class ExampleMod
 //            LOGGER.info("HELLO from Register Block");
 //        }
 //    }
+
+    public static final ItemGroup TAB = new ItemGroup("WHATISTHIS") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(Register.SLIMESUMMON.get());
+        }
+    };
 }
