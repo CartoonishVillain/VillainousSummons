@@ -29,9 +29,9 @@ public class HorseMount extends HorseEntity{
 
     public static AttributeModifierMap.MutableAttribute customAttributes() {
         return MobEntity.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 20D)
-                .add(Attributes.MOVEMENT_SPEED, 0.25D)
-                .add(Attributes.JUMP_STRENGTH, 1D);
+                .add(Attributes.MAX_HEALTH, 22D)
+                .add(Attributes.MOVEMENT_SPEED, 0.225D)
+                .add(Attributes.JUMP_STRENGTH, 0.7D);
     }
 
 
