@@ -1,7 +1,6 @@
 package com.example.examplemod;
 
-import com.example.examplemod.Entities.HorseMount;
-import com.example.examplemod.Entities.SlimeMount;
+import com.example.examplemod.Entities.*;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -46,12 +45,15 @@ public class ExampleMod
         DeferredWorkQueue.runLater(() -> {
             GlobalEntityTypeAttributes.put(Register.SLIMEMOUNT.get(), SlimeMount.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.HORSEMOUNT.get(), HorseMount.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.WOLFMINION.get(), WolfMinion.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.VEXMINION.get(), VexMinion.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.BEARMINION.get(), BearMinion.customAttributes().build());
+
         });
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
