@@ -1,5 +1,6 @@
-package com.example.examplemod.Entities;
+package com.cartoonishvillain.villainoussummon.Entities;
 
+import com.cartoonishvillain.villainoussummon.Register;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
@@ -11,7 +12,16 @@ import net.minecraft.entity.passive.PolarBearEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
+import java.util.function.Predicate;
+
 public class BearMinion extends PolarBearEntity {
+    public static final Predicate<LivingEntity> ATTACK_PREDICATE = (p_213440_0_) -> {
+        EntityType<?> entitytype = p_213440_0_.getType();
+        return entitytype != Register.VEXMINION.get() && entitytype != EntityType.CREEPER;
+    };
+
+    @Override
+    protected int getExperienceReward(PlayerEntity p_70693_1_) {return 0;}
 
     public static AttributeModifierMap.MutableAttribute customAttributes() {
         return MobEntity.createMobAttributes()
@@ -28,7 +38,8 @@ public class BearMinion extends PolarBearEntity {
         this.goalSelector.addGoal(1, new BearMinion.MeleeAttackGoal());
         this.goalSelector.addGoal(5, new RandomWalkingGoal(this, 1.0D));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this, LivingEntity.class));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, MonsterEntity.class, true));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, MonsterEntity.class, 16, true, false,  ATTACK_PREDICATE));
+
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.cartoonishvillain.villainoussummon.Items;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
@@ -8,7 +8,6 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ItemWithLore extends Item {

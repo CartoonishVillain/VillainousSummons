@@ -1,16 +1,15 @@
-package com.example.examplemod.Client;
+package com.cartoonishvillain.villainoussummon.Client;
 
-import com.example.examplemod.Entities.SlimeMount;
-import com.example.examplemod.ExampleMod;
+import com.cartoonishvillain.villainoussummon.Entities.SlimeMount;
+import com.cartoonishvillain.villainoussummon.VillainousSummon;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.SlimeRenderer;
 import net.minecraft.client.renderer.entity.model.SlimeModel;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderSlimeMount extends MobRenderer<SlimeMount, SlimeModel<SlimeMount>> {
 
-    protected static final ResourceLocation TEXTURE = new ResourceLocation(ExampleMod.MOD_ID, "textures/entity/slime.png");
+    protected static final ResourceLocation TEXTURE = new ResourceLocation(VillainousSummon.MOD_ID, "textures/entity/slime.png");
 
 
     public RenderSlimeMount(EntityRendererManager p_i50961_1_) {

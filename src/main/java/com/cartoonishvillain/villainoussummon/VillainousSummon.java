@@ -1,6 +1,6 @@
-package com.example.examplemod;
+package com.cartoonishvillain.villainoussummon;
 
-import com.example.examplemod.Entities.*;
+import com.cartoonishvillain.villainoussummon.Entities.*;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -18,14 +18,14 @@ import org.apache.logging.log4j.Logger;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("aotc")
 
-public class ExampleMod
+public class VillainousSummon
 {
 
     public static final String MOD_ID = "aotc";
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public ExampleMod() {
+    public VillainousSummon() {
         Register.init();
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -48,7 +48,7 @@ public class ExampleMod
             GlobalEntityTypeAttributes.put(Register.WOLFMINION.get(), WolfMinion.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.VEXMINION.get(), VexMinion.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.BEARMINION.get(), BearMinion.customAttributes().build());
-
+            GlobalEntityTypeAttributes.put(Register.TURRETMK1.get(), TurretMk1.customAttributes().build());
         });
     }
 

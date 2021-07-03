@@ -1,6 +1,7 @@
-package com.example.examplemod.Entities;
+package com.cartoonishvillain.villainoussummon.Entities;
 
-import com.example.examplemod.Register;
+import com.cartoonishvillain.villainoussummon.Register;
+import net.minecraft.client.renderer.entity.model.SnowManModel;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
@@ -11,7 +12,6 @@ import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.VexEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
@@ -23,7 +23,7 @@ import java.util.function.Predicate;
 public class VexMinion extends VexEntity {
     public static final Predicate<LivingEntity> ATTACK_PREDICATE = (p_213440_0_) -> {
         EntityType<?> entitytype = p_213440_0_.getType();
-        return entitytype != Register.VEXMINION.get();
+        return entitytype != Register.VEXMINION.get() && entitytype != EntityType.CREEPER;
     };
 
     @Override
@@ -33,6 +33,7 @@ public class VexMinion extends VexEntity {
         super(p_i50190_1_, p_i50190_2_);
         this.xpReward = 0;
     }
+
 
     public static AttributeModifierMap.MutableAttribute customAttributes() {
         return MobEntity.createMobAttributes()
@@ -56,7 +57,7 @@ public class VexMinion extends VexEntity {
     }
 
     /*
-    These goals are from mojang using their official mappings.
+    These goals and functions are from mojang using their official mappings.
     I just needed to access them here.
      */
 

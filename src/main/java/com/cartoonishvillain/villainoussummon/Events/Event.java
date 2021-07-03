@@ -1,11 +1,10 @@
-package com.example.examplemod;
+package com.cartoonishvillain.villainoussummon.Events;
 
-import com.example.examplemod.Entities.*;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.passive.WolfEntity;
+import com.cartoonishvillain.villainoussummon.Entities.*;
+import com.cartoonishvillain.villainoussummon.Register;
+import com.cartoonishvillain.villainoussummon.VillainousSummon;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraftforge.event.TickEvent;
@@ -15,12 +14,9 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.ArrayList;
 import java.util.Random;
 
-//TODO: On logout, user is desynced with their mount. Fix that :D
-
-@Mod.EventBusSubscriber(modid = ExampleMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = VillainousSummon.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class Event {
     @SubscribeEvent
     public static void summonmount(PlayerInteractEvent.RightClickItem event){
@@ -93,7 +89,7 @@ public class Event {
     }
 
     @SubscribeEvent
-    public static void test(TickEvent.PlayerTickEvent event){
+    public static void Resyncer(TickEvent.PlayerTickEvent event){
         PlayerEntity playerEntity = event.player;
         if(playerEntity.tickCount == 10){
             if(playerEntity.getVehicle() instanceof SlimeMount || playerEntity.getVehicle() instanceof HorseMount){

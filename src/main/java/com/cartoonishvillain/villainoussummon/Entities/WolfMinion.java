@@ -1,4 +1,4 @@
-package com.example.examplemod.Entities;
+package com.cartoonishvillain.villainoussummon.Entities;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;

@@ -1,18 +1,11 @@
-package com.example.examplemod.Client;
+package com.cartoonishvillain.villainoussummon.Client;
 
-import com.example.examplemod.Entities.HorseMount;
-import com.example.examplemod.Entities.WolfMinion;
+import com.cartoonishvillain.villainoussummon.Entities.WolfMinion;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.WolfRenderer;
-import net.minecraft.client.renderer.entity.layers.WolfCollarLayer;
-import net.minecraft.client.renderer.entity.model.HorseModel;
-import net.minecraft.client.renderer.entity.model.WolfModel;
-import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class RenderWolfSummon extends WolfRenderer {
 
