@@ -1,6 +1,6 @@
 package com.cartoonishvillain.villainoussummon.Client.CustomRenderers;
 
-import com.cartoonishvillain.villainoussummon.Entities.WolfMinion;
+import com.cartoonishvillain.villainoussummon.Entities.Minions.WolfMinion;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;

@@ -1,6 +1,10 @@
 package com.cartoonishvillain.villainoussummon.Events;
 
-import com.cartoonishvillain.villainoussummon.Entities.*;
+import com.cartoonishvillain.villainoussummon.Entities.Minions.BearMinion;
+import com.cartoonishvillain.villainoussummon.Entities.Minions.VexMinion;
+import com.cartoonishvillain.villainoussummon.Entities.Minions.WolfMinion;
+import com.cartoonishvillain.villainoussummon.Entities.Mounts.HorseMount;
+import com.cartoonishvillain.villainoussummon.Entities.Mounts.SlimeMount;
 import com.cartoonishvillain.villainoussummon.Register;
 import com.cartoonishvillain.villainoussummon.VillainousSummon;
 import net.minecraft.entity.player.PlayerEntity;

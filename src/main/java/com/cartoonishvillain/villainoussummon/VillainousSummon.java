@@ -1,6 +1,11 @@
 package com.cartoonishvillain.villainoussummon;
 
-import com.cartoonishvillain.villainoussummon.Entities.*;
+import com.cartoonishvillain.villainoussummon.Entities.Minions.BearMinion;
+import com.cartoonishvillain.villainoussummon.Entities.Minions.VexMinion;
+import com.cartoonishvillain.villainoussummon.Entities.Minions.WolfMinion;
+import com.cartoonishvillain.villainoussummon.Entities.Mounts.HorseMount;
+import com.cartoonishvillain.villainoussummon.Entities.Mounts.SlimeMount;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.TurretMk1;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;

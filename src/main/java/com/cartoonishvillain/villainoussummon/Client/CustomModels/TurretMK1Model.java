@@ -3,7 +3,7 @@ package com.cartoonishvillain.villainoussummon.Client.CustomModels;// Made with 
 // Paste this class into your mod and generate all required imports
 
 
-import com.cartoonishvillain.villainoussummon.Entities.TurretMk1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.TurretMk1;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;

@@ -1,4 +1,4 @@
-package com.cartoonishvillain.villainoussummon.Entities;
+package com.cartoonishvillain.villainoussummon.Entities.Mounts;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;

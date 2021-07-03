@@ -1,11 +1,15 @@
 package com.cartoonishvillain.villainoussummon;
 
-import com.cartoonishvillain.villainoussummon.Entities.*;
+import com.cartoonishvillain.villainoussummon.Entities.Minions.BearMinion;
+import com.cartoonishvillain.villainoussummon.Entities.Minions.VexMinion;
+import com.cartoonishvillain.villainoussummon.Entities.Minions.WolfMinion;
+import com.cartoonishvillain.villainoussummon.Entities.Mounts.HorseMount;
+import com.cartoonishvillain.villainoussummon.Entities.Mounts.SlimeMount;
 import com.cartoonishvillain.villainoussummon.Entities.Projectiles.TurretArrow;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.TurretMk1;
 import com.cartoonishvillain.villainoussummon.Items.ItemWithLore;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
@@ -30,11 +34,11 @@ public class Register {
     public static final RegistryObject<EntityType<TurretArrow>> TURRETARROW = ENTITY_TYPES.register("turretarrow", () -> EntityType.Builder.<TurretArrow>of(TurretArrow::new, EntityClassification.MISC).sized(0.5F, 1.975F).build(new ResourceLocation(VillainousSummon.MOD_ID, "turretarrow").toString()));
 
 
-    public static final RegistryObject<Item> SLIMESUMMON = ITEMS.register("slimesummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(30), new String[] {TextFormatting.BLUE + "Summons a large slime to ride around on!", TextFormatting.BLUE + "Can bounce on enemies, jump high, and reduces fall damage!"}));
-    public static final RegistryObject<Item> HORSESUMMON = ITEMS.register("horsesummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons an average horse to ride around on!"}));
-    public static final RegistryObject<Item> WOLFSUMMON = ITEMS.register("wolfsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary, but loyal pack of wolves to protect you!"}));
-    public static final RegistryObject<Item> VEXSUMMON = ITEMS.register("vexsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary swarm of vex to attack monsters!"}));
-    public static final RegistryObject<Item> BEARSUMMON = ITEMS.register("bearsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary polar bear to attack monsters!"}));
+    public static final RegistryObject<Item> SLIMESUMMON = ITEMS.register("slimesummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(30), new String[] {TextFormatting.BLUE + "Summons a large slime to ride around on!", TextFormatting.BLUE + "Can bounce on enemies, jump high, and reduces fall damage!"}, 5));
+    public static final RegistryObject<Item> HORSESUMMON = ITEMS.register("horsesummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons an average horse to ride around on!"}, 5));
+    public static final RegistryObject<Item> WOLFSUMMON = ITEMS.register("wolfsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary, but loyal pack of wolves to protect you!"}, 120));
+    public static final RegistryObject<Item> VEXSUMMON = ITEMS.register("vexsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary swarm of vex to attack monsters!"}, 60));
+    public static final RegistryObject<Item> BEARSUMMON = ITEMS.register("bearsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary polar bear to attack monsters!"}, 90));
 
 
 }

@@ -1,6 +1,6 @@
 package com.cartoonishvillain.villainoussummon.Client.CustomRenderers;
 
-import com.cartoonishvillain.villainoussummon.Entities.SlimeMount;
+import com.cartoonishvillain.villainoussummon.Entities.Mounts.SlimeMount;
 import com.cartoonishvillain.villainoussummon.VillainousSummon;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;

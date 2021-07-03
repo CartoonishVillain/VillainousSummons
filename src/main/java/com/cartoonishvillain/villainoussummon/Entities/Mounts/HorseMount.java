@@ -1,4 +1,4 @@
-package com.cartoonishvillain.villainoussummon.Entities;
+package com.cartoonishvillain.villainoussummon.Entities.Mounts;
 
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;

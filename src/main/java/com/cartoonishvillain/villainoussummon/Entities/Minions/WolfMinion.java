@@ -1,4 +1,4 @@
-package com.cartoonishvillain.villainoussummon.Entities;
+package com.cartoonishvillain.villainoussummon.Entities.Minions;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;

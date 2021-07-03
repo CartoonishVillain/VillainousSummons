@@ -1,7 +1,7 @@
 package com.cartoonishvillain.villainoussummon.Client.CustomRenderers;
 
 import com.cartoonishvillain.villainoussummon.Client.CustomModels.TurretMK1Model;
-import com.cartoonishvillain.villainoussummon.Entities.TurretMk1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.TurretMk1;
 import com.cartoonishvillain.villainoussummon.VillainousSummon;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
