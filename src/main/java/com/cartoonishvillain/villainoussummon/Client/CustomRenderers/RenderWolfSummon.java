@@ -1,4 +1,4 @@
-package com.cartoonishvillain.villainoussummon.Client;
+package com.cartoonishvillain.villainoussummon.Client.CustomRenderers;
 
 import com.cartoonishvillain.villainoussummon.Entities.WolfMinion;
 import com.mojang.blaze3d.matrix.MatrixStack;

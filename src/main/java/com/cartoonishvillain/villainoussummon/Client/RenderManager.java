@@ -1,9 +1,10 @@
 package com.cartoonishvillain.villainoussummon.Client;
 
+import com.cartoonishvillain.villainoussummon.Client.CustomRenderers.RenderSlimeMount;
+import com.cartoonishvillain.villainoussummon.Client.CustomRenderers.RenderTurretMK1;
 import com.cartoonishvillain.villainoussummon.VillainousSummon;
 import com.cartoonishvillain.villainoussummon.Register;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -20,6 +21,6 @@ public class RenderManager {
             RenderingRegistry.registerEntityRenderingHandler(Register.VEXMINION.get(), VexRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.BEARMINION.get(), PolarBearRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.TURRETMK1.get(), RenderTurretMK1::new);
-
+            RenderingRegistry.registerEntityRenderingHandler(Register.TURRETARROW.get(), TippedArrowRenderer::new);
         }
 }

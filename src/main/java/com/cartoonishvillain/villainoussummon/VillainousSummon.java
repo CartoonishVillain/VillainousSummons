@@ -16,12 +16,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("aotc")
+@Mod("villainoussummons")
 
 public class VillainousSummon
 {
 
-    public static final String MOD_ID = "aotc";
+    public static final String MOD_ID = "villainoussummons";
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 

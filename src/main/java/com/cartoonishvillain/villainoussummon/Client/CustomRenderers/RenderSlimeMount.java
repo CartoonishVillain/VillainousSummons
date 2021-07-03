@@ -1,4 +1,4 @@
-package com.cartoonishvillain.villainoussummon.Client;
+package com.cartoonishvillain.villainoussummon.Client.CustomRenderers;
 
 import com.cartoonishvillain.villainoussummon.Entities.SlimeMount;
 import com.cartoonishvillain.villainoussummon.VillainousSummon;
