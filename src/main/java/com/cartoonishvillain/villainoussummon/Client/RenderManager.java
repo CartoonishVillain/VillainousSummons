@@ -20,7 +20,8 @@ public class RenderManager {
             RenderingRegistry.registerEntityRenderingHandler(Register.WOLFMINION.get(), WolfRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.VEXMINION.get(), VexRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.BEARMINION.get(), PolarBearRenderer::new);
-            RenderingRegistry.registerEntityRenderingHandler(Register.TURRETMK1.get(), RenderTurretMK1::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.ARROWTURRETMK1.get(), RenderTurretMK1::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.FIREARROWTURRETMK1.get(), RenderTurretMK1::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.TURRETARROW.get(), TippedArrowRenderer::new);
         }
 }

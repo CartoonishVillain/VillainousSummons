@@ -18,9 +18,9 @@ import net.minecraft.world.World;
 
 import java.util.function.Predicate;
 
-public class TurretMk1 extends GolemEntity implements IRangedAttackMob {
+public class ArrowTurretMk1 extends BaseTurrets implements IRangedAttackMob {
 
-    public TurretMk1(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
+    public ArrowTurretMk1(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
         super(p_i50244_1_, p_i50244_2_);
     }
     public static final Predicate<LivingEntity> ATTACK_PREDICATE = (p_213440_0_) -> {
@@ -33,34 +33,7 @@ public class TurretMk1 extends GolemEntity implements IRangedAttackMob {
                 .add(Attributes.KNOCKBACK_RESISTANCE, 20D).add(Attributes.MAX_HEALTH, 40D).add(Attributes.MOVEMENT_SPEED, 0.0d).add(Attributes.ARMOR, 5);
     }
 
-    @Override
-    public boolean canBeLeashed(PlayerEntity p_184652_1_) {
-        return false;
-    }
 
-    @Override
-    public boolean canBeCollidedWith() {
-        return false;
-    }
-
-    @Override
-    public boolean canCollideWith(Entity p_241849_1_) {
-        return false;
-    }
-
-    @Override
-    public boolean isPushable() {
-        return false;
-    }
-
-    @Override
-    protected void doPush(Entity p_82167_1_) {
-    }
-
-    @Override
-    public boolean fireImmune() {
-        return true;
-    }
 
     @Override
     public void tick() {

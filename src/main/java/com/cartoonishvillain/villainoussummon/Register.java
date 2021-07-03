@@ -6,7 +6,8 @@ import com.cartoonishvillain.villainoussummon.Entities.Minions.WolfMinion;
 import com.cartoonishvillain.villainoussummon.Entities.Mounts.HorseMount;
 import com.cartoonishvillain.villainoussummon.Entities.Mounts.SlimeMount;
 import com.cartoonishvillain.villainoussummon.Entities.Projectiles.TurretArrow;
-import com.cartoonishvillain.villainoussummon.Entities.Turrets.TurretMk1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.ArrowTurretMk1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.FireArrowTurretMk1;
 import com.cartoonishvillain.villainoussummon.Items.ItemWithLore;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -29,7 +30,9 @@ public class Register {
     public static final RegistryObject<EntityType<WolfMinion>> WOLFMINION = ENTITY_TYPES.register("wolfminion", () -> EntityType.Builder.of(WolfMinion::new, EntityClassification.CREATURE).sized(0.6F, 0.85F).build(new ResourceLocation(VillainousSummon.MOD_ID, "wolfminion").toString()));
     public static final RegistryObject<EntityType<VexMinion>> VEXMINION = ENTITY_TYPES.register("vexminion", () -> EntityType.Builder.of(VexMinion::new, EntityClassification.CREATURE).sized(0.6F, 0.85F).build(new ResourceLocation(VillainousSummon.MOD_ID, "vexminion").toString()));
     public static final RegistryObject<EntityType<BearMinion>> BEARMINION = ENTITY_TYPES.register("bearminion", () -> EntityType.Builder.of(BearMinion::new, EntityClassification.CREATURE).sized(0.6F, 0.85F).build(new ResourceLocation(VillainousSummon.MOD_ID, "bearminion").toString()));
-    public static final RegistryObject<EntityType<TurretMk1>> TURRETMK1 = ENTITY_TYPES.register("turrentmk1", () -> EntityType.Builder.of(TurretMk1::new, EntityClassification.MISC).sized(1f, 2f).build(new ResourceLocation(VillainousSummon.MOD_ID, "turretmk1").toString()));
+    public static final RegistryObject<EntityType<ArrowTurretMk1>> ARROWTURRETMK1 = ENTITY_TYPES.register("arrowturretmk1", () -> EntityType.Builder.of(ArrowTurretMk1::new, EntityClassification.MISC).sized(1f, 2f).build(new ResourceLocation(VillainousSummon.MOD_ID, "arrowturretmk1").toString()));
+    public static final RegistryObject<EntityType<FireArrowTurretMk1>> FIREARROWTURRETMK1 = ENTITY_TYPES.register("firearrowturretmk1", () -> EntityType.Builder.of(FireArrowTurretMk1::new, EntityClassification.MISC).sized(1f, 2f).build(new ResourceLocation(VillainousSummon.MOD_ID, "firearrowturretmk1").toString()));
+
 
     public static final RegistryObject<EntityType<TurretArrow>> TURRETARROW = ENTITY_TYPES.register("turretarrow", () -> EntityType.Builder.<TurretArrow>of(TurretArrow::new, EntityClassification.MISC).sized(0.5F, 1.975F).build(new ResourceLocation(VillainousSummon.MOD_ID, "turretarrow").toString()));
 

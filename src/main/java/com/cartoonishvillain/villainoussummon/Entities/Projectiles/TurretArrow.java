@@ -3,6 +3,8 @@ package com.cartoonishvillain.villainoussummon.Entities.Projectiles;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.world.World;
@@ -11,6 +13,12 @@ public class TurretArrow extends ArrowEntity {
 
     public TurretArrow(World p_i46758_1_, LivingEntity p_i46758_2_) {
         super(p_i46758_1_, p_i46758_2_);
+    }
+
+    public TurretArrow(World p_i46758_1_, LivingEntity p_i46758_2_, int fireseconds) {
+        super(p_i46758_1_, p_i46758_2_);
+        this.setSecondsOnFire(fireseconds);
+
     }
 
     public TurretArrow(EntityType<? extends ArrowEntity> p_i50172_1_, World p_i50172_2_) {
