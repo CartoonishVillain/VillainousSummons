@@ -16,7 +16,7 @@ import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class SlimeballProjectile extends ProjectileItemEntity {
+public class SlimeballProjectile extends GenericItemProjectile {
 
     public SlimeballProjectile(EntityType<? extends ProjectileItemEntity> p_i50155_1_, World p_i50155_2_) {
         super(p_i50155_1_, p_i50155_2_);
@@ -58,8 +58,4 @@ public class SlimeballProjectile extends ProjectileItemEntity {
         this.remove();
     }
 
-    @Override
-    public IPacket<?> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
-    }
 }

@@ -24,16 +24,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */ //This class is entirely based off of the spooky arms code for rendering these.
 
-import com.cartoonishvillain.villainoussummon.Entities.Projectiles.SlimeballProjectile;
+import com.cartoonishvillain.villainoussummon.Entities.Projectiles.GenericItemProjectile;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class SlimeProjectilRenderFactory implements IRenderFactory<SlimeballProjectile> {
+public class GenericItemProjectileRenderFactory implements IRenderFactory<GenericItemProjectile> {
     @Override
-    public EntityRenderer<? super SlimeballProjectile> createRenderFor(EntityRendererManager manager) {
-        return new SpriteRenderer<>(manager, Minecraft.getInstance().getItemRenderer()); 
+    public EntityRenderer<? super GenericItemProjectile> createRenderFor(EntityRendererManager manager) {
+        return new SpriteRenderer<>(manager, Minecraft.getInstance().getItemRenderer());
     }
 }
