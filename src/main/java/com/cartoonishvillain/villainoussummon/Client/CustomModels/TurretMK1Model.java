@@ -3,14 +3,14 @@ package com.cartoonishvillain.villainoussummon.Client.CustomModels;// Made with 
 // Paste this class into your mod and generate all required imports
 
 
-import com.cartoonishvillain.villainoussummon.Entities.Turrets.ArrowTurretMk1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.BaseTurretsMK1;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.passive.GolemEntity;
 
-public class TurretMK1Model<T extends GolemEntity> extends EntityModel<ArrowTurretMk1> {
+public class TurretMK1Model<T extends GolemEntity> extends EntityModel<BaseTurretsMK1> {
 	private final ModelRenderer Head;
 	private final ModelRenderer Stand;
 
@@ -29,7 +29,7 @@ public class TurretMK1Model<T extends GolemEntity> extends EntityModel<ArrowTurr
 	}
 
 	@Override
-	public void setupAnim(ArrowTurretMk1 p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float netHeadYaw, float headPitch) {
+	public void setupAnim(BaseTurretsMK1 p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float netHeadYaw, float headPitch) {
 		this.Head.yRot = netHeadYaw * ((float)Math.PI / 180F);
 		this.Head.xRot = headPitch * ((float)Math.PI / 180F);
 	}

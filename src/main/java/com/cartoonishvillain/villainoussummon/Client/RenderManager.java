@@ -2,6 +2,7 @@ package com.cartoonishvillain.villainoussummon.Client;
 
 import com.cartoonishvillain.villainoussummon.Client.CustomRenderers.RenderSlimeMount;
 import com.cartoonishvillain.villainoussummon.Client.CustomRenderers.RenderTurretMK1;
+import com.cartoonishvillain.villainoussummon.Client.CustomRenderers.SlimeProjectilRenderFactory;
 import com.cartoonishvillain.villainoussummon.VillainousSummon;
 import com.cartoonishvillain.villainoussummon.Register;
 import net.minecraft.client.renderer.entity.*;
@@ -21,7 +22,9 @@ public class RenderManager {
             RenderingRegistry.registerEntityRenderingHandler(Register.VEXMINION.get(), VexRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.BEARMINION.get(), PolarBearRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.ARROWTURRETMK1.get(), RenderTurretMK1::new);
-            RenderingRegistry.registerEntityRenderingHandler(Register.FIREARROWTURRETMK1.get(), RenderTurretMK1::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.FIRETURRETMK1.get(), RenderTurretMK1::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.SLIMETURRETMK1.get(), RenderTurretMK1::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.TURRETARROW.get(), TippedArrowRenderer::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.SLIMEPROJECTILE.get(), new SlimeProjectilRenderFactory());
         }
 }

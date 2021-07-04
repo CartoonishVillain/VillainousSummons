@@ -54,7 +54,8 @@ public class VillainousSummon
             GlobalEntityTypeAttributes.put(Register.VEXMINION.get(), VexMinion.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.BEARMINION.get(), BearMinion.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.ARROWTURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.FIREARROWTURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.FIRETURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.SLIMETURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
         });
     }
 
