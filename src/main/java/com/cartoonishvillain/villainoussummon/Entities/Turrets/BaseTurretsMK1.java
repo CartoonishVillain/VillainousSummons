@@ -14,9 +14,14 @@ import net.minecraft.world.World;
 import java.util.function.Predicate;
 
 public abstract class BaseTurretsMK1 extends GolemEntity implements IRangedAttackMob {
-    protected BaseTurretsMK1(EntityType<? extends GolemEntity> p_i48569_1_, World p_i48569_2_) {
+
+    turretTypeMK1 type = null;
+
+    protected BaseTurretsMK1(EntityType<? extends GolemEntity> p_i48569_1_, World p_i48569_2_, turretTypeMK1 type) {
         super(p_i48569_1_, p_i48569_2_);
+        this.type = type;
     }
+
 
     public static final Predicate<LivingEntity> ATTACK_PREDICATE = (p_213440_0_) -> {
         EntityType<?> entitytype = p_213440_0_.getType();
@@ -58,5 +63,9 @@ public abstract class BaseTurretsMK1 extends GolemEntity implements IRangedAttac
     @Override
     public void performRangedAttack(LivingEntity p_82196_1_, float p_82196_2_) {
 
+    }
+
+    public turretTypeMK1 getTurretType(){
+        return type;
     }
 }

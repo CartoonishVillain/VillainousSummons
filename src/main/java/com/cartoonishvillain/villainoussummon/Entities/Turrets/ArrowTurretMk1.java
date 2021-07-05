@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class ArrowTurretMk1 extends BaseTurretsMK1 implements IRangedAttackMob {
 
     public ArrowTurretMk1(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
-        super(p_i50244_1_, p_i50244_2_);
+        super(p_i50244_1_, p_i50244_2_, turretTypeMK1.ARROW);
     }
 
 
@@ -40,6 +40,6 @@ public class ArrowTurretMk1 extends BaseTurretsMK1 implements IRangedAttackMob {
         float f = MathHelper.sqrt(x * x + z * z)*0.2f;
         this.playSound(SoundEvents.DISPENSER_LAUNCH, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         this.level.addFreshEntity(arrowEntity);
-        arrowEntity.shoot(x, y+f, z, 1.6f, 12.0f);}
+        arrowEntity.shoot(x, y+f, z, 1.6f, 2.0f);}
     }
 }

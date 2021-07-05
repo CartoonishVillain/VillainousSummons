@@ -16,9 +16,9 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class FireTurretMk1 extends ArrowTurretMk1 implements IRangedAttackMob {
+public class FireTurretMk1 extends BaseTurretsMK1 implements IRangedAttackMob {
     public FireTurretMk1(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
-        super(p_i50244_1_, p_i50244_2_);
+        super(p_i50244_1_, p_i50244_2_, turretTypeMK1.FIRE);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class FireTurretMk1 extends ArrowTurretMk1 implements IRangedAttackMob {
             double x = entity.getX() - this.getX();
             double y = entity.getY() - this.getEyeY();
             double z = entity.getZ() - this.getZ();
-            float f = MathHelper.sqrt(MathHelper.sqrt(distance)) * 0.5F;
+            float f = MathHelper.sqrt(MathHelper.sqrt(distance)) * 0.6F;
             SmallFireballEntity smallfireballentity = new SmallFireballEntity(this.level, this, x + this.getRandom().nextGaussian() * (double)f, y, z + this.getRandom().nextGaussian() * (double)f);
             smallfireballentity.setPos(this.getX(), this.getEyeY(), this.getZ());
             this.playSound(SoundEvents.FIRECHARGE_USE, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4f + 0.8f));
