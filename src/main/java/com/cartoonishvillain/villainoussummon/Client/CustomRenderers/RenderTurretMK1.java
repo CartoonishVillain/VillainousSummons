@@ -1,9 +1,8 @@
 package com.cartoonishvillain.villainoussummon.Client.CustomRenderers;
 
 import com.cartoonishvillain.villainoussummon.Client.CustomModels.TurretMK1Model;
-import com.cartoonishvillain.villainoussummon.Entities.Turrets.BaseTurretsMK1;
-import com.cartoonishvillain.villainoussummon.Entities.Turrets.FireTurretMk1;
-import com.cartoonishvillain.villainoussummon.Entities.Turrets.turretTypeMK1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.BaseTurretsMK1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.turretTypeMK1;
 import com.cartoonishvillain.villainoussummon.VillainousSummon;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -24,7 +23,6 @@ public class RenderTurretMK1 extends MobRenderer<BaseTurretsMK1, TurretMK1Model<
     public ResourceLocation getTextureLocation(BaseTurretsMK1 turretMK1) {
         turretTypeMK1 typeMK1 = turretMK1.getTurretType();
         switch (typeMK1){
-            case ARROW: return ARROWTEXTURE;
             case FIRE: return FIRETEXTURE;
             case SLIME: return SLIMETEXTURE;
             default: return ARROWTEXTURE;

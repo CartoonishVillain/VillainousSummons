@@ -1,6 +1,5 @@
-package com.cartoonishvillain.villainoussummon.Entities.Turrets;
+package com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1;
 
-import com.cartoonishvillain.villainoussummon.Entities.Projectiles.TurretArrow;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.LivingEntity;

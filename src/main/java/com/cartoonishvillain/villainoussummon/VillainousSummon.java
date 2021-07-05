@@ -5,7 +5,7 @@ import com.cartoonishvillain.villainoussummon.Entities.Minions.VexMinion;
 import com.cartoonishvillain.villainoussummon.Entities.Minions.WolfMinion;
 import com.cartoonishvillain.villainoussummon.Entities.Mounts.HorseMount;
 import com.cartoonishvillain.villainoussummon.Entities.Mounts.SlimeMount;
-import com.cartoonishvillain.villainoussummon.Entities.Turrets.ArrowTurretMk1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.ArrowTurretMk1;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -56,6 +56,7 @@ public class VillainousSummon
             GlobalEntityTypeAttributes.put(Register.ARROWTURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.FIRETURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.SLIMETURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.ARROWTURRETMK2.get(), ArrowTurretMk1.customAttributes().build());
         });
     }
 

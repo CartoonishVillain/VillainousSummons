@@ -1,7 +1,6 @@
-package com.cartoonishvillain.villainoussummon.Entities.Turrets;
+package com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1;
 
 import com.cartoonishvillain.villainoussummon.Entities.Projectiles.SlimeballProjectile;
-import com.cartoonishvillain.villainoussummon.Entities.Projectiles.TurretArrow;
 import com.cartoonishvillain.villainoussummon.Register;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -11,9 +10,6 @@ import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.GolemEntity;
-import net.minecraft.entity.projectile.ProjectileItemEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;

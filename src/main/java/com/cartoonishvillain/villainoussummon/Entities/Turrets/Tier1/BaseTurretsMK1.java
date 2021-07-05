@@ -1,5 +1,6 @@
-package com.cartoonishvillain.villainoussummon.Entities.Turrets;
+package com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1;
 
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.TurretTemplate;
 import com.cartoonishvillain.villainoussummon.Register;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
@@ -13,7 +14,7 @@ import net.minecraft.world.World;
 
 import java.util.function.Predicate;
 
-public abstract class BaseTurretsMK1 extends GolemEntity implements IRangedAttackMob {
+public abstract class BaseTurretsMK1 extends TurretTemplate implements IRangedAttackMob {
 
     turretTypeMK1 type = null;
 
@@ -28,42 +29,15 @@ public abstract class BaseTurretsMK1 extends GolemEntity implements IRangedAttac
         return (entitytype != Register.VEXMINION.get() && !p_213440_0_.isDeadOrDying());
     };
 
-    //They strangely could be leashed otherwise..
-    @Override
-    public boolean canBeLeashed(PlayerEntity p_184652_1_) {
-        return false;
-    }
 
-    //A bit hacky, but stops turrets from being pushed when they probably shouldn't be.
-    @Override
-    public boolean isVehicle() {return true;}
-
-
-    //Made out of stone and iron. Fireproof.
-    @Override
-    public boolean fireImmune() {
-        return true;
-    }
 
     @Override
     protected void registerGoals(){
-        this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25D, 20, 10.0F));
+        this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25D, 20, 20.0F));
         this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, MonsterEntity.class, 10, true, false, ATTACK_PREDICATE));
     }
 
-    @Override
-    public void tick() {
-        super.tick();
-        if(this.hasEffect(Effects.POISON)){removeEffect(Effects.POISON);}
-        if(this.hasEffect(Effects.WITHER)){removeEffect(Effects.WITHER);}
-        if(this.getTarget() != null && !this.getTarget().isAlive()){this.setTarget(null);}
-    }
-
-    @Override
-    public void performRangedAttack(LivingEntity p_82196_1_, float p_82196_2_) {
-
-    }
 
     public turretTypeMK1 getTurretType(){
         return type;
