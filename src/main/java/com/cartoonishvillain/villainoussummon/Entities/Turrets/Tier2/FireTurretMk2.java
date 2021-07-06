@@ -1,23 +1,21 @@
-package com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1;
+package com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2;
 
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.BaseTurretsMK1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.turretTypeMK1;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.entity.projectile.SmallFireballEntity;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class FireTurretMk1 extends BaseTurretsMK1 implements IRangedAttackMob {
-    public FireTurretMk1(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
+public class FireTurretMk2 extends BaseTurretsMK2 implements IRangedAttackMob {
+    public FireTurretMk2(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
         super(p_i50244_1_, p_i50244_2_, turretTypeMK1.FIRE);
     }
 
@@ -38,7 +36,7 @@ public class FireTurretMk1 extends BaseTurretsMK1 implements IRangedAttackMob {
 
     public static AttributeModifierMap.MutableAttribute customAttributes(){
         return MobEntity.createMobAttributes()
-                .add(Attributes.KNOCKBACK_RESISTANCE, 20D).add(Attributes.MAX_HEALTH, 40D).add(Attributes.MOVEMENT_SPEED, 0.0d).add(Attributes.ARMOR, 5);
+                .add(Attributes.KNOCKBACK_RESISTANCE, 20D).add(Attributes.MAX_HEALTH, 70D).add(Attributes.MOVEMENT_SPEED, 0.0d).add(Attributes.ARMOR, 5);
     }
 
 }

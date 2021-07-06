@@ -33,7 +33,7 @@ public abstract class BaseTurretsMK1 extends TurretTemplate implements IRangedAt
 
     @Override
     protected void registerGoals(){
-        this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25D, 20, 20.0F));
+        this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25D, 35, 35));
         this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, MonsterEntity.class, 10, true, false, ATTACK_PREDICATE));
     }

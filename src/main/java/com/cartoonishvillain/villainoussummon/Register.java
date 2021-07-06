@@ -10,7 +10,7 @@ import com.cartoonishvillain.villainoussummon.Entities.Projectiles.TurretArrow;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.ArrowTurretMk1;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.FireTurretMk1;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.SlimeTurretMk1;
-import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.ArrowTurretMk2;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.*;
 import com.cartoonishvillain.villainoussummon.Items.ItemWithLore;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -39,6 +39,12 @@ public class Register {
     public static final RegistryObject<EntityType<SlimeTurretMk1>> SLIMETURRETMK1 = ENTITY_TYPES.register("slimeturretmk1", () -> EntityType.Builder.of(SlimeTurretMk1::new, EntityClassification.MISC).sized(1f, 2f).build(new ResourceLocation(VillainousSummon.MOD_ID, "slimeturretmk1").toString()));
 
     public static final RegistryObject<EntityType<ArrowTurretMk2>> ARROWTURRETMK2 = ENTITY_TYPES.register("arrowturretmk2", () -> EntityType.Builder.of(ArrowTurretMk2::new, EntityClassification.MISC).sized(1f, 2.5f).build(new ResourceLocation(VillainousSummon.MOD_ID, "arrowturretmk2").toString()));
+    public static final RegistryObject<EntityType<ScoutTurretMK2>> SCOUTTURRETMK2 = ENTITY_TYPES.register("scoutturretmk2", () -> EntityType.Builder.of(ScoutTurretMK2::new, EntityClassification.MISC).sized(1f, 2.5f).build(new ResourceLocation(VillainousSummon.MOD_ID, "scoutturretmk2").toString()));
+    public static final RegistryObject<EntityType<FireTurretMk2>> FIRETURRETMK2 = ENTITY_TYPES.register("fireturretmk2", () -> EntityType.Builder.of(FireTurretMk2::new, EntityClassification.MISC).sized(1f, 2.5f).build(new ResourceLocation(VillainousSummon.MOD_ID, "fireturretmk2").toString()));
+    public static final RegistryObject<EntityType<FireArrowTurretMk2>> FIREARROWTURRETMK2 = ENTITY_TYPES.register("firearrowturretmk2", () -> EntityType.Builder.of(FireArrowTurretMk2::new, EntityClassification.MISC).sized(1f, 2.5f).build(new ResourceLocation(VillainousSummon.MOD_ID, "firearrowturretmk2").toString()));
+    public static final RegistryObject<EntityType<PotionArrowTurretMk2>> POTIONARROWTURRETMK2 = ENTITY_TYPES.register("potionarrowturretmk2", () -> EntityType.Builder.of(PotionArrowTurretMk2::new, EntityClassification.MISC).sized(1f, 2.5f).build(new ResourceLocation(VillainousSummon.MOD_ID, "potionarrowturretmk2").toString()));
+
+
 
 
 
@@ -49,7 +55,7 @@ public class Register {
     public static final RegistryObject<Item> SLIMESUMMON = ITEMS.register("slimesummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(30), new String[] {TextFormatting.BLUE + "Summons a large slime to ride around on!", TextFormatting.BLUE + "Can bounce on enemies, jump high, and reduces fall damage!"}, 5));
     public static final RegistryObject<Item> HORSESUMMON = ITEMS.register("horsesummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons an average horse to ride around on!"}, 5));
     public static final RegistryObject<Item> WOLFSUMMON = ITEMS.register("wolfsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary, but loyal pack of wolves to protect you!"}, 120));
-    public static final RegistryObject<Item> VEXSUMMON = ITEMS.register("vexsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary swarm of vex to attack monsters!"}, 60));
+    public static final RegistryObject<Item> VEXSUMMON = ITEMS.register("vexsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary swarm of vex to attack monsters!", TextFormatting.RED + "Golems and some other mobs may not be very happy about this."}, 60));
     public static final RegistryObject<Item> BEARSUMMON = ITEMS.register("bearsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary polar bear to attack monsters!"}, 90));
 
 

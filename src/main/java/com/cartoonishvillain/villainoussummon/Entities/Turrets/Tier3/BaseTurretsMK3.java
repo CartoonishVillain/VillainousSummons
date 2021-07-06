@@ -1,4 +1,4 @@
-package com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2;
+package com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3;
 
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.turretTypeMK1;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.TurretTemplate;
@@ -15,11 +15,11 @@ import net.minecraft.world.World;
 
 import java.util.function.Predicate;
 
-public abstract class BaseTurretsMK2 extends TurretTemplate implements IRangedAttackMob {
+public abstract class BaseTurretsMK3 extends TurretTemplate implements IRangedAttackMob {
 
     turretTypeMK1 type = null;
 
-    protected BaseTurretsMK2(EntityType<? extends GolemEntity> p_i48569_1_, World p_i48569_2_, turretTypeMK1 type) {
+    protected BaseTurretsMK3(EntityType<? extends GolemEntity> p_i48569_1_, World p_i48569_2_, turretTypeMK1 type) {
         super(p_i48569_1_, p_i48569_2_);
         this.type = type;
     }

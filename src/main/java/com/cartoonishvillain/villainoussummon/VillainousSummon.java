@@ -6,7 +6,11 @@ import com.cartoonishvillain.villainoussummon.Entities.Minions.WolfMinion;
 import com.cartoonishvillain.villainoussummon.Entities.Mounts.HorseMount;
 import com.cartoonishvillain.villainoussummon.Entities.Mounts.SlimeMount;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.ArrowTurretMk1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.FireTurretMk1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.SlimeTurretMk1;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.*;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.entity.monster.WitchEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -54,9 +58,13 @@ public class VillainousSummon
             GlobalEntityTypeAttributes.put(Register.VEXMINION.get(), VexMinion.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.BEARMINION.get(), BearMinion.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.ARROWTURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.FIRETURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.SLIMETURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.ARROWTURRETMK2.get(), ArrowTurretMk1.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.FIRETURRETMK1.get(), FireTurretMk1.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.SLIMETURRETMK1.get(), SlimeTurretMk1.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.ARROWTURRETMK2.get(), ArrowTurretMk2.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.SCOUTTURRETMK2.get(), ScoutTurretMK2.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.FIRETURRETMK2.get(), FireTurretMk2.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.FIREARROWTURRETMK2.get(), FireArrowTurretMk2.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.POTIONARROWTURRETMK2.get(), PotionArrowTurretMk2.customAttributes().build());
         });
     }
 

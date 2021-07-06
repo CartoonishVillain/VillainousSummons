@@ -32,6 +32,7 @@ public class Event {
             entity.setTamed(true);
             event.getWorld().addFreshEntity(entity);
             event.getPlayer().startRiding(entity);
+            entity.playSound(SoundEvents.CHICKEN_EGG, 1.0f, 0);
             success = true;
             }
             else if(event.getItemStack().getItem().equals(Register.HORSESUMMON.get())){
@@ -40,6 +41,7 @@ public class Event {
                 entity.setTamed(true);
                 event.getWorld().addFreshEntity(entity);
                 event.getPlayer().startRiding(entity);
+                entity.playSound(SoundEvents.CHICKEN_EGG, 1.0f, 0);
                 success = true;
             }
             else if(event.getItemStack().getItem().equals(Register.WOLFSUMMON.get())){
@@ -48,6 +50,7 @@ public class Event {
                     entity.setPos(event.getPlayer().position().x, event.getPlayer().position().y, event.getPlayer().position().z);
                     entity.tame(event.getPlayer());
                     event.getWorld().addFreshEntity(entity);
+                    entity.playSound(SoundEvents.WOLF_HOWL, 1.0f, 1);
                     success = true;
                 }
             }else if(event.getItemStack().getItem().equals(Register.VEXSUMMON.get())){
@@ -57,11 +60,14 @@ public class Event {
                     event.getWorld().addFreshEntity(entity);
                     success = true;
                 }
+                entities[1].playSound(SoundEvents.EVOKER_PREPARE_SUMMON, 1.0f, 1);
+
             }else if(event.getItemStack().getItem().equals(Register.BEARSUMMON.get())){
                     BearMinion entity = new BearMinion(Register.BEARMINION.get(), event.getWorld());
                     entity.setPos(event.getPlayer().position().x, event.getPlayer().position().y, event.getPlayer().position().z);
                     event.getWorld().addFreshEntity(entity);
                     success = true;
+                entity.playSound(SoundEvents.POLAR_BEAR_WARNING, 1.0f, 1);
             }
 
             if(success){

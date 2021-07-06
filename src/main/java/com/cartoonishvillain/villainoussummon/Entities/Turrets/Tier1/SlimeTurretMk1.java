@@ -42,7 +42,7 @@ public class SlimeTurretMk1 extends BaseTurretsMK1 implements IRangedAttackMob {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25D, 20, 10.0F));
+        this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25D, 35, 35F));
         this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, MonsterEntity.class, 10, true, false, ATTACK_PREDICATE));
     }
