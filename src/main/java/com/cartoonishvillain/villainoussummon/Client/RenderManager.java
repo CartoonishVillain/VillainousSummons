@@ -30,6 +30,9 @@ public class RenderManager {
             RenderingRegistry.registerEntityRenderingHandler(Register.FIRETURRETMK2.get(), RenderTurretMK2::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.FIREARROWTURRETMK2.get(), RenderTurretMK2::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.POTIONARROWTURRETMK2.get(), RenderTurretMK2::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.CANNONTURRETMK3.get(), RenderTurretMK2::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.BALLISTATURRETMK3.get(), RenderTurretMK2::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.ARCANETURRETMK3.get(), RenderTurretMK2::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.TURRETARROW.get(), TippedArrowRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.SLIMEPROJECTILE.get(), new GenericItemProjectileRenderFactory());
         }

@@ -3,6 +3,7 @@ package com.cartoonishvillain.villainoussummon.Entities.Projectiles;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.world.World;
@@ -29,7 +30,9 @@ public class BallistaArrow extends ArrowEntity {
 
     @Override
     protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
-        p_213868_1_.getEntity().invulnerableTime = 0;
+        if(p_213868_1_.getEntity() instanceof LivingEntity){
+            p_213868_1_.getEntity().hurt(DamageSource.arrow(this, null), (float) this.getBaseDamage());
+        p_213868_1_.getEntity().invulnerableTime = 0;}
     }
 
     @Override

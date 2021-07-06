@@ -9,6 +9,9 @@ import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.ArrowTurret
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.FireTurretMk1;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.SlimeTurretMk1;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.*;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.ArcaneTurretMk3;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.BallistaTurretMk3;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.CannonTurretMk3;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.monster.WitchEntity;
 import net.minecraft.item.ItemGroup;
@@ -65,6 +68,9 @@ public class VillainousSummon
             GlobalEntityTypeAttributes.put(Register.FIRETURRETMK2.get(), FireTurretMk2.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.FIREARROWTURRETMK2.get(), FireArrowTurretMk2.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.POTIONARROWTURRETMK2.get(), PotionArrowTurretMk2.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.CANNONTURRETMK3.get(), CannonTurretMk3.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.ARCANETURRETMK3.get(), ArcaneTurretMk3.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.BALLISTATURRETMK3.get(), BallistaTurretMk3.customAttributes().build());
         });
     }
 
