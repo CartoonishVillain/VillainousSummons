@@ -46,5 +46,6 @@ public class CannonballProjectile extends GenericItemProjectile {
         super.onHit(p_70227_1_);
         Vector3d vector3d = p_70227_1_.getLocation();
         this.level.explode(this, vector3d.x, vector3d.y, vector3d.z, 3, Explosion.Mode.NONE);
+        this.remove();
     }
 }
