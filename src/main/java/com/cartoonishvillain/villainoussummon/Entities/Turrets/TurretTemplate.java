@@ -31,6 +31,10 @@ public abstract class TurretTemplate extends GolemEntity implements IRangedAttac
         return true;
     }
 
+    @Override
+    protected float getJumpPower() {
+        return 0;
+    }
 
     //turrets aren't technically alive despite them being a living entity...
     //as such poison and wither shouldn't really have an effect on them.

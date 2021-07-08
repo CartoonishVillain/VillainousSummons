@@ -21,7 +21,7 @@ import java.util.Random;
 public class PotionArrowTurretMk2 extends BaseTurretsMK2 implements IRangedAttackMob {
 
     public PotionArrowTurretMk2(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
-        super(p_i50244_1_, p_i50244_2_, turretTypeMK1.ARROW);
+        super(p_i50244_1_, p_i50244_2_, turretTypeMK2.POTIONARROW);
     }
 
 
@@ -67,7 +67,7 @@ public class PotionArrowTurretMk2 extends BaseTurretsMK2 implements IRangedAttac
         double y = initheight - arrowEntity.getY();
         double z = p_82196_1_.getZ() - this.getZ();
         float f = MathHelper.sqrt(x * x + z * z)*0.2f;
-        this.playSound(SoundEvents.DISPENSER_LAUNCH, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4f + 0.8f));
+        this.playSound(SoundEvents.SPLASH_POTION_BREAK, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         this.level.addFreshEntity(arrowEntity);
         arrowEntity.shoot(x, y+f, z, 1.6f, 2.0f);}
     }

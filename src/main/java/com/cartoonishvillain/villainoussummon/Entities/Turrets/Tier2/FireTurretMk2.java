@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class FireTurretMk2 extends BaseTurretsMK2 implements IRangedAttackMob {
     public FireTurretMk2(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
-        super(p_i50244_1_, p_i50244_2_, turretTypeMK1.FIRE);
+        super(p_i50244_1_, p_i50244_2_, turretTypeMK2.FIRE);
     }
 
     @Override

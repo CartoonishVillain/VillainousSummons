@@ -14,6 +14,7 @@ import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.*;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.ArcaneTurretMk3;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.BallistaTurretMk3;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.CannonTurretMk3;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier4.RapidArrowTurretMk4;
 import com.cartoonishvillain.villainoussummon.Items.ItemWithLore;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -47,14 +48,11 @@ public class Register {
     public static final RegistryObject<EntityType<FireArrowTurretMk2>> FIREARROWTURRETMK2 = ENTITY_TYPES.register("firearrowturretmk2", () -> EntityType.Builder.of(FireArrowTurretMk2::new, EntityClassification.MISC).sized(1f, 2.5f).build(new ResourceLocation(VillainousSummon.MOD_ID, "firearrowturretmk2").toString()));
     public static final RegistryObject<EntityType<PotionArrowTurretMk2>> POTIONARROWTURRETMK2 = ENTITY_TYPES.register("potionarrowturretmk2", () -> EntityType.Builder.of(PotionArrowTurretMk2::new, EntityClassification.MISC).sized(1f, 2.5f).build(new ResourceLocation(VillainousSummon.MOD_ID, "potionarrowturretmk2").toString()));
 
-    public static final RegistryObject<EntityType<ArcaneTurretMk3>> ARCANETURRETMK3 = ENTITY_TYPES.register("arcaneturretmk3", () -> EntityType.Builder.of(ArcaneTurretMk3::new, EntityClassification.MISC).sized(1f, 2.5f).build(new ResourceLocation(VillainousSummon.MOD_ID, "arcaneturretmk3").toString()));
-    public static final RegistryObject<EntityType<BallistaTurretMk3>> BALLISTATURRETMK3 = ENTITY_TYPES.register("ballistaturretmk3", () -> EntityType.Builder.of(BallistaTurretMk3::new, EntityClassification.MISC).sized(1f, 2.5f).build(new ResourceLocation(VillainousSummon.MOD_ID, "ballistaturretmk3").toString()));
-    public static final RegistryObject<EntityType<CannonTurretMk3>> CANNONTURRETMK3 = ENTITY_TYPES.register("cannonturretmk3", () -> EntityType.Builder.of(CannonTurretMk3::new, EntityClassification.MISC).sized(1f, 2.5f).build(new ResourceLocation(VillainousSummon.MOD_ID, "cannonturretmk3").toString()));
+    public static final RegistryObject<EntityType<ArcaneTurretMk3>> ARCANETURRETMK3 = ENTITY_TYPES.register("arcaneturretmk3", () -> EntityType.Builder.of(ArcaneTurretMk3::new, EntityClassification.MISC).sized(1.25f, 3.4375f).build(new ResourceLocation(VillainousSummon.MOD_ID, "arcaneturretmk3").toString()));
+    public static final RegistryObject<EntityType<BallistaTurretMk3>> BALLISTATURRETMK3 = ENTITY_TYPES.register("ballistaturretmk3", () -> EntityType.Builder.of(BallistaTurretMk3::new, EntityClassification.MISC).sized(1.25f, 3.4375f).build(new ResourceLocation(VillainousSummon.MOD_ID, "ballistaturretmk3").toString()));
+    public static final RegistryObject<EntityType<CannonTurretMk3>> CANNONTURRETMK3 = ENTITY_TYPES.register("cannonturretmk3", () -> EntityType.Builder.of(CannonTurretMk3::new, EntityClassification.MISC).sized(1.25f, 3.4375f).build(new ResourceLocation(VillainousSummon.MOD_ID, "cannonturretmk3").toString()));
 
-
-
-
-
+    public static final RegistryObject<EntityType<RapidArrowTurretMk4>> RAPIDARROWTURRETMK4 = ENTITY_TYPES.register("rapidarrowturretmk4", () -> EntityType.Builder.of(RapidArrowTurretMk4::new, EntityClassification.MISC).sized(1.25f, 3.4375f).build(new ResourceLocation(VillainousSummon.MOD_ID, "rapidarrowturretmk4").toString()));
 
 
     public static final RegistryObject<EntityType<TurretArrow>> TURRETARROW = ENTITY_TYPES.register("turretarrow", () -> EntityType.Builder.<TurretArrow>of(TurretArrow::new, EntityClassification.MISC).sized(0.5F, 1.975F).build(new ResourceLocation(VillainousSummon.MOD_ID, "turretarrow").toString()));

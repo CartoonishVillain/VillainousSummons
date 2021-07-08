@@ -12,6 +12,7 @@ import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.*;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.ArcaneTurretMk3;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.BallistaTurretMk3;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.CannonTurretMk3;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier4.RapidArrowTurretMk4;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.monster.WitchEntity;
 import net.minecraft.item.ItemGroup;
@@ -71,6 +72,7 @@ public class VillainousSummon
             GlobalEntityTypeAttributes.put(Register.CANNONTURRETMK3.get(), CannonTurretMk3.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.ARCANETURRETMK3.get(), ArcaneTurretMk3.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.BALLISTATURRETMK3.get(), BallistaTurretMk3.customAttributes().build());
+            GlobalEntityTypeAttributes.put(Register.RAPIDARROWTURRETMK4.get(), RapidArrowTurretMk4.customAttributes().build());
         });
     }
 

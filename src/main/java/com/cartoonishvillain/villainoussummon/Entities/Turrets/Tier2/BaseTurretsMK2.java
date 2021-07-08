@@ -17,9 +17,9 @@ import java.util.function.Predicate;
 
 public abstract class BaseTurretsMK2 extends TurretTemplate implements IRangedAttackMob {
 
-    turretTypeMK1 type = null;
+    turretTypeMK2 type = null;
 
-    protected BaseTurretsMK2(EntityType<? extends GolemEntity> p_i48569_1_, World p_i48569_2_, turretTypeMK1 type) {
+    protected BaseTurretsMK2(EntityType<? extends GolemEntity> p_i48569_1_, World p_i48569_2_, turretTypeMK2 type) {
         super(p_i48569_1_, p_i48569_2_);
         this.type = type;
     }
@@ -40,7 +40,7 @@ public abstract class BaseTurretsMK2 extends TurretTemplate implements IRangedAt
     }
 
 
-    public turretTypeMK1 getTurretType(){
+    public turretTypeMK2 getTurretType(){
         return type;
     }
 }

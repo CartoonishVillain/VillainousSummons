@@ -1,9 +1,6 @@
 package com.cartoonishvillain.villainoussummon.Client;
 
-import com.cartoonishvillain.villainoussummon.Client.CustomRenderers.RenderSlimeMount;
-import com.cartoonishvillain.villainoussummon.Client.CustomRenderers.RenderTurretMK1;
-import com.cartoonishvillain.villainoussummon.Client.CustomRenderers.GenericItemProjectileRenderFactory;
-import com.cartoonishvillain.villainoussummon.Client.CustomRenderers.RenderTurretMK2;
+import com.cartoonishvillain.villainoussummon.Client.CustomRenderers.*;
 import com.cartoonishvillain.villainoussummon.VillainousSummon;
 import com.cartoonishvillain.villainoussummon.Register;
 import net.minecraft.client.renderer.entity.*;
@@ -30,9 +27,10 @@ public class RenderManager {
             RenderingRegistry.registerEntityRenderingHandler(Register.FIRETURRETMK2.get(), RenderTurretMK2::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.FIREARROWTURRETMK2.get(), RenderTurretMK2::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.POTIONARROWTURRETMK2.get(), RenderTurretMK2::new);
-            RenderingRegistry.registerEntityRenderingHandler(Register.CANNONTURRETMK3.get(), RenderTurretMK2::new);
-            RenderingRegistry.registerEntityRenderingHandler(Register.BALLISTATURRETMK3.get(), RenderTurretMK2::new);
-            RenderingRegistry.registerEntityRenderingHandler(Register.ARCANETURRETMK3.get(), RenderTurretMK2::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.CANNONTURRETMK3.get(), RenderTurretMK3::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.BALLISTATURRETMK3.get(), RenderTurretMK3::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.ARCANETURRETMK3.get(), RenderTurretMK3::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.RAPIDARROWTURRETMK4.get(), RenderTurretMK3::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.TURRETARROW.get(), TippedArrowRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.SLIMEPROJECTILE.get(), new GenericItemProjectileRenderFactory());
         }

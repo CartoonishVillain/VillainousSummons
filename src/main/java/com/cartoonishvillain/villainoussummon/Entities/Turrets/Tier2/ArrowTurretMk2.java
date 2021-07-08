@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class ArrowTurretMk2 extends BaseTurretsMK2 implements IRangedAttackMob {
 
     public ArrowTurretMk2(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
-        super(p_i50244_1_, p_i50244_2_, turretTypeMK1.ARROW);
+        super(p_i50244_1_, p_i50244_2_, turretTypeMK2.ARROW);
     }
 
 

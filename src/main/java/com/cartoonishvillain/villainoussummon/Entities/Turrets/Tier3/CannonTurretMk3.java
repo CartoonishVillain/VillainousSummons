@@ -5,6 +5,7 @@ import com.cartoonishvillain.villainoussummon.Entities.Projectiles.SlimeballProj
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.BaseTurretsMK1;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.turretTypeMK1;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.BaseTurretsMK2;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.turretTypeMK2;
 import com.cartoonishvillain.villainoussummon.Register;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -22,10 +23,10 @@ import net.minecraft.world.World;
 
 import java.util.function.Predicate;
 
-public class CannonTurretMk3 extends BaseTurretsMK2 implements IRangedAttackMob {
+public class CannonTurretMk3 extends BaseTurretsMK3 implements IRangedAttackMob {
 
     public CannonTurretMk3(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
-        super(p_i50244_1_, p_i50244_2_, turretTypeMK1.SLIME);
+        super(p_i50244_1_, p_i50244_2_, turretTypeMK3.CANNON);
     }
 
 
@@ -59,7 +60,7 @@ public class CannonTurretMk3 extends BaseTurretsMK2 implements IRangedAttackMob 
 
     @Override
     public void performRangedAttack(LivingEntity p_82196_1_, float p_82196_2_) {
-        if(p_82196_1_ != null && p_82196_1_.isAlive() && !(p_82196_1_.distanceTo(this) < 5)){
+        if(p_82196_1_ != null && p_82196_1_.isAlive() && !(p_82196_1_.distanceTo(this) < 3)){
             CannonballProjectile projectileItemEntity = new CannonballProjectile(Register.SLIMEPROJECTILE.get(), this, this.level);
             double initheight = p_82196_1_.getEyeY() - 1.1f;
             double x = p_82196_1_.getX() - this.getX();

@@ -2,6 +2,7 @@ package com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3;
 
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.turretTypeMK1;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.BaseTurretsMK2;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.turretTypeMK2;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.TurretTemplate;
 import com.cartoonishvillain.villainoussummon.Register;
 import net.minecraft.entity.EntityType;
@@ -16,15 +17,13 @@ import net.minecraft.world.World;
 
 import java.util.function.Predicate;
 
-//TODO: Switch to turret template when models are available. This is simply done to make life easier.
-public abstract class BaseTurretsMK3 extends BaseTurretsMK2 implements IRangedAttackMob {
+public abstract class BaseTurretsMK3 extends TurretTemplate implements IRangedAttackMob {
 
-    turretTypeMK1 type = null;
+    turretTypeMK3 type = null;
 
-    protected BaseTurretsMK3(EntityType<? extends GolemEntity> p_i48569_1_, World p_i48569_2_, turretTypeMK1 type) {
-        //TODO: When the above is done, remove type here and uncomment the commeted line below.
-        super(p_i48569_1_, p_i48569_2_, type);
-        //this.type = type;
+    protected BaseTurretsMK3(EntityType<? extends GolemEntity> p_i48569_1_, World p_i48569_2_, turretTypeMK3 type) {
+        super(p_i48569_1_, p_i48569_2_);
+        this.type = type;
     }
 
 
@@ -43,7 +42,7 @@ public abstract class BaseTurretsMK3 extends BaseTurretsMK2 implements IRangedAt
     }
 
 
-    public turretTypeMK1 getTurretType(){
+    public turretTypeMK3 getTurretType(){
         return type;
     }
 }
