@@ -107,7 +107,7 @@ public class VillainousSummon
 //        }
 //    }
 
-    public static final ItemGroup TAB = new ItemGroup("WHATISTHIS") {
+    public static final ItemGroup TAB = new ItemGroup("villainoussummons") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(Register.SLIMESUMMON.get());

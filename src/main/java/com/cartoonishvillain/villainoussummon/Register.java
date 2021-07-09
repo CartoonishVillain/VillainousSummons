@@ -16,6 +16,7 @@ import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.BallistaTur
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.CannonTurretMk3;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier4.RapidArrowTurretMk4;
 import com.cartoonishvillain.villainoussummon.Items.ItemWithLore;
+import com.cartoonishvillain.villainoussummon.Items.TurretPlacementItem;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -59,11 +60,29 @@ public class Register {
     public static final RegistryObject<EntityType<SlimeballProjectile>> SLIMEPROJECTILE = ENTITY_TYPES.register("slimeprojectile", () -> EntityType.Builder.<SlimeballProjectile>of(SlimeballProjectile::new, EntityClassification.MISC).sized(0.25f, 0.25f).build(new ResourceLocation(VillainousSummon.MOD_ID, "slimeprojectile").toString()));
 
 
-    public static final RegistryObject<Item> SLIMESUMMON = ITEMS.register("slimesummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(30), new String[] {TextFormatting.BLUE + "Summons a large slime to ride around on!", TextFormatting.BLUE + "Can bounce on enemies, jump high, and reduces fall damage!"}, 5));
-    public static final RegistryObject<Item> HORSESUMMON = ITEMS.register("horsesummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons an average horse to ride around on!"}, 5));
-    public static final RegistryObject<Item> WOLFSUMMON = ITEMS.register("wolfsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary, but loyal pack of wolves to protect you!"}, 120));
-    public static final RegistryObject<Item> VEXSUMMON = ITEMS.register("vexsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary swarm of vex to attack monsters!", TextFormatting.RED + "Golems and some other mobs may not be very happy about this."}, 60));
-    public static final RegistryObject<Item> BEARSUMMON = ITEMS.register("bearsummon", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary polar bear to attack monsters!"}, 90));
+    public static final RegistryObject<Item> SLIMESUMMON = ITEMS.register("slimyapple", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(30), new String[] {TextFormatting.BLUE + "Summons a large slime to ride around on!", TextFormatting.BLUE + "Can bounce on enemies, jump high, and reduces fall damage!"}, 5));
+    public static final RegistryObject<Item> HORSESUMMON = ITEMS.register("enchantedapple", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons an average horse to ride around on!"}, 5));
+    public static final RegistryObject<Item> WOLFSUMMON = ITEMS.register("fetchstick", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary, but loyal pack of wolves to protect you!"}, 120));
+    public static final RegistryObject<Item> VEXSUMMON = ITEMS.register("emfreader", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary swarm of vex to attack monsters!", TextFormatting.RED + "Golems and some other mobs may not be very happy about this."}, 60));
+    public static final RegistryObject<Item> BEARSUMMON = ITEMS.register("magicalsugarwater", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary polar bear to attack monsters!"}, 90));
+
+    public static final RegistryObject<Item> ARROWTURRETMK1SUMMON = ITEMS.register("arrowturretmk1summon", () -> new TurretPlacementItem(Register.ARROWTURRETMK1, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.BLUE + "Shoots arrows at nearby enemies to help keep them off your lawn."}));
+    public static final RegistryObject<Item> FIRETURRETMK1SUMMON = ITEMS.register("fireturretmk1summon", () -> new TurretPlacementItem(Register.FIRETURRETMK1, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.BLUE + "Shoots fireballs at nearby enemies to burn them. May cause accidental forest fires."}));
+    public static final RegistryObject<Item> SLIMETURRETMK1SUMMON = ITEMS.register("slimeturretmk1summon", () -> new TurretPlacementItem(Register.SLIMETURRETMK1, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.BLUE + "Shoots slimeballs at nearby enemies to slow them down"}));
+
+    public static final RegistryObject<Item> ARROWTURRETMK2SUMMON = ITEMS.register("arrowturretmk2summon", () -> new TurretPlacementItem(Register.ARROWTURRETMK2, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.GREEN + "Shoots arrows at a faster rate from their tier 1 counterpart, with the bonuses of an upgraded shell"}));
+    public static final RegistryObject<Item> SCOUTTURRETMK2SUMMON = ITEMS.register("scoutturretmk2summon", () -> new TurretPlacementItem(Register.SCOUTTURRETMK2, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.GREEN + "Spots nearby enemies and gives them the glowing effect"}));
+    public static final RegistryObject<Item> FIRETURRETMK2SUMMON = ITEMS.register("fireturretmk2summon", () -> new TurretPlacementItem(Register.FIRETURRETMK2, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.GREEN + "Shoots fireballs at a faster rate from their tier 1 counterpart, with the bonuses of an upgraded shell"}));
+    public static final RegistryObject<Item> FIREARROWTURRETMK2SUMMON = ITEMS.register("firearrowturretmk2summon", () -> new TurretPlacementItem(Register.FIREARROWTURRETMK2, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.GREEN + "Fires flaming arrows at enemies.", TextFormatting.RED + "Some design compromises were made to support flaming arrows."}));
+    public static final RegistryObject<Item> POTIONARROWTURRETMK2SUMMON = ITEMS.register("potionarrowturretmk2summon", () -> new TurretPlacementItem(Register.POTIONARROWTURRETMK2, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.GREEN + "Fires potion tipped arrows at enemies.", TextFormatting.RED + "Some design compromises were made to support potions."}));
+
+    public static final RegistryObject<Item> ARCANETURRETMK3SUMMON = ITEMS.register("arcaneturretmk3summon", () -> new TurretPlacementItem(Register.ARCANETURRETMK3, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.RED + "Casts lightning down on it's targets with debuffs, including potentially severe ones."}));
+    public static final RegistryObject<Item> BALLISTATURRETMK3SUMMON = ITEMS.register("ballistaturretmk3summon", () -> new TurretPlacementItem(Register.BALLISTATURRETMK3, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.RED + "Fires a high power bolt that pierces through enemies at a slow rate"}));
+    public static final RegistryObject<Item> CANNONTURRETMK3SUMMON = ITEMS.register("cannonturretmk3summon", () -> new TurretPlacementItem(Register.CANNONTURRETMK3, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.RED +"Fires highly explosive munitions at targets", TextFormatting.RED + "May accidentally hit friendlies"}));
+
+    public static final RegistryObject<Item> RAPIDARROWTURRETMK4SUMMON = ITEMS.register("rapidarrowturretmk4summon", () -> new TurretPlacementItem(Register.RAPIDARROWTURRETMK4, 16777215, 16777215, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.LIGHT_PURPLE + "Creative only!", TextFormatting.LIGHT_PURPLE + "Fires arrows at an alarming rate."}));
+
+
 
 
 }
