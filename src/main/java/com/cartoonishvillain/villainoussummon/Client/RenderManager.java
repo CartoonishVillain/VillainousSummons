@@ -33,5 +33,6 @@ public class RenderManager {
             RenderingRegistry.registerEntityRenderingHandler(Register.RAPIDARROWTURRETMK4.get(), RenderTurretMK3::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.TURRETARROW.get(), TippedArrowRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.SLIMEPROJECTILE.get(), new GenericItemProjectileRenderFactory());
+            RenderingRegistry.registerEntityRenderingHandler(Register.INNATECANONBALL.get(), new GenericItemProjectileRenderFactory());
         }
 }

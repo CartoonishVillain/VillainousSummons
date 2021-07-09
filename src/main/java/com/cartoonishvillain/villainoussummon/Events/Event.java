@@ -5,8 +5,14 @@ import com.cartoonishvillain.villainoussummon.Entities.Minions.VexMinion;
 import com.cartoonishvillain.villainoussummon.Entities.Minions.WolfMinion;
 import com.cartoonishvillain.villainoussummon.Entities.Mounts.HorseMount;
 import com.cartoonishvillain.villainoussummon.Entities.Mounts.SlimeMount;
+import com.cartoonishvillain.villainoussummon.Entities.Turrets.TurretTemplate;
 import com.cartoonishvillain.villainoussummon.Register;
 import com.cartoonishvillain.villainoussummon.VillainousSummon;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
@@ -105,6 +111,15 @@ public class Event {
             if(playerEntity.getVehicle() instanceof SlimeMount || playerEntity.getVehicle() instanceof HorseMount){
                 playerEntity.stopRiding();
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void TurretTargeter(EntityJoinWorldEvent event){
+        Entity sEntity = event.getEntity();
+        if(sEntity instanceof MonsterEntity && !VillainousSummon.EXCEMPTFROMMODIFICATION.contains(sEntity.getType())){
+            MonsterEntity entity = (MonsterEntity) sEntity;
+            entity.targetSelector.addGoal(20, new NearestAttackableTargetGoal<>(entity, TurretTemplate.class, true));
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.cartoonishvillain.villainoussummon.Entities.Projectiles;
 
+import com.cartoonishvillain.villainoussummon.Register;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -33,12 +34,12 @@ public class CannonballProjectile extends GenericItemProjectile {
 
     @Override
     protected Item getDefaultItem() {
-        return Items.SLIME_BALL;
+        return Register.CANNONBALL.get();
     }
 
     @Override
     public ItemStack getItem() {
-        return new ItemStack(Items.SLIME_BALL.getItem());
+        return new ItemStack(Register.CANNONBALL.get());
     }
 
     @Override

@@ -5,8 +5,7 @@ import com.cartoonishvillain.villainoussummon.Entities.Minions.VexMinion;
 import com.cartoonishvillain.villainoussummon.Entities.Minions.WolfMinion;
 import com.cartoonishvillain.villainoussummon.Entities.Mounts.HorseMount;
 import com.cartoonishvillain.villainoussummon.Entities.Mounts.SlimeMount;
-import com.cartoonishvillain.villainoussummon.Entities.Projectiles.SlimeballProjectile;
-import com.cartoonishvillain.villainoussummon.Entities.Projectiles.TurretArrow;
+import com.cartoonishvillain.villainoussummon.Entities.Projectiles.*;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.ArrowTurretMk1;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.FireTurretMk1;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.SlimeTurretMk1;
@@ -15,6 +14,7 @@ import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.ArcaneTurre
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.BallistaTurretMk3;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.CannonTurretMk3;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier4.RapidArrowTurretMk4;
+import com.cartoonishvillain.villainoussummon.Items.CannonballItem;
 import com.cartoonishvillain.villainoussummon.Items.ItemWithLore;
 import com.cartoonishvillain.villainoussummon.Items.TurretPlacementItem;
 import net.minecraft.entity.EntityClassification;
@@ -26,6 +26,8 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.rmi.registry.Registry;
 
 public class Register {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, VillainousSummon.MOD_ID);
@@ -57,7 +59,12 @@ public class Register {
 
 
     public static final RegistryObject<EntityType<TurretArrow>> TURRETARROW = ENTITY_TYPES.register("turretarrow", () -> EntityType.Builder.<TurretArrow>of(TurretArrow::new, EntityClassification.MISC).sized(0.5F, 1.975F).build(new ResourceLocation(VillainousSummon.MOD_ID, "turretarrow").toString()));
+    public static final RegistryObject<EntityType<BallistaArrow>> BALLISTAARROW = ENTITY_TYPES.register("ballistaarrow", () -> EntityType.Builder.<BallistaArrow>of(BallistaArrow::new, EntityClassification.MISC).sized(0.5F, 1.975F).build(new ResourceLocation(VillainousSummon.MOD_ID, "ballistaarrow").toString()));
     public static final RegistryObject<EntityType<SlimeballProjectile>> SLIMEPROJECTILE = ENTITY_TYPES.register("slimeprojectile", () -> EntityType.Builder.<SlimeballProjectile>of(SlimeballProjectile::new, EntityClassification.MISC).sized(0.25f, 0.25f).build(new ResourceLocation(VillainousSummon.MOD_ID, "slimeprojectile").toString()));
+    public static final RegistryObject<EntityType<InnateCannonballProjectile>> INNATECANONBALL = ENTITY_TYPES.register("innatecannonballprojectile", () -> EntityType.Builder.<InnateCannonballProjectile>of(InnateCannonballProjectile::new, EntityClassification.MISC).sized(0.25f, 0.25f).build(new ResourceLocation(VillainousSummon.MOD_ID, "innatecannonballprojectile").toString()));
+    public static final RegistryObject<EntityType<CannonballProjectile>> CANNONBALLPROJECTILE = ENTITY_TYPES.register("cannonballprojectile", () -> EntityType.Builder.<CannonballProjectile>of(CannonballProjectile::new, EntityClassification.MISC).sized(0.25f, 0.25f).build(new ResourceLocation(VillainousSummon.MOD_ID, "cannonballprojectile").toString()));
+
+
 
 
     public static final RegistryObject<Item> SLIMESUMMON = ITEMS.register("slimyapple", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(30), new String[] {TextFormatting.BLUE + "Summons a large slime to ride around on!", TextFormatting.BLUE + "Can bounce on enemies, jump high, and reduces fall damage!"}, 5));
@@ -81,6 +88,22 @@ public class Register {
     public static final RegistryObject<Item> CANNONTURRETMK3SUMMON = ITEMS.register("cannonturretmk3summon", () -> new TurretPlacementItem(Register.CANNONTURRETMK3, 1, 1, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.RED +"Fires highly explosive munitions at targets", TextFormatting.RED + "May accidentally hit friendlies"}));
 
     public static final RegistryObject<Item> RAPIDARROWTURRETMK4SUMMON = ITEMS.register("rapidarrowturretmk4summon", () -> new TurretPlacementItem(Register.RAPIDARROWTURRETMK4, 16777215, 16777215, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.LIGHT_PURPLE + "Creative only!", TextFormatting.LIGHT_PURPLE + "Fires arrows at an alarming rate."}));
+
+
+    //TODO: IMPLEMENT CRAFTING, LOCALIZATION, AND TEXTURING OF THE BELOW
+    public static final RegistryObject<Item> REDSTONEBRAIN = ITEMS.register("redstonebrain", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));
+    public static final RegistryObject<Item> EMPTYT1SHELL = ITEMS.register("emptymk1shell", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));
+    public static final RegistryObject<Item> POUCHOFARROWS = ITEMS.register("pouchofarrows", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));
+    public static final RegistryObject<Item> POUCHOFFUEL = ITEMS.register("pouchoffuel", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));
+    public static final RegistryObject<Item> POUCHOFSLIME = ITEMS.register("pouchofslime", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));
+    public static final RegistryObject<Item> IRONSTAND = ITEMS.register("ironturretstand", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));
+    public static final RegistryObject<Item> EMPTYT2SHELL = ITEMS.register("emptymk2shell", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));
+    public static final RegistryObject<Item> DIAMONDSTAND = ITEMS.register("diamondturretstand", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));
+    public static final RegistryObject<Item> EMPTYT3SHELL = ITEMS.register("emptymk3shell", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));
+    public static final RegistryObject<Item> CANNONBALL = ITEMS.register("cannonball", () -> new CannonballItem(new Item.Properties().tab(VillainousSummon.TAB)));
+
+
+
 
 
 

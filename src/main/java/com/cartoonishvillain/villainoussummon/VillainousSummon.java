@@ -13,6 +13,8 @@ import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.ArcaneTurre
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.BallistaTurretMk3;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.CannonTurretMk3;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier4.RapidArrowTurretMk4;
+import com.cartoonishvillain.villainoussummon.Items.CannonballItem;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.monster.WitchEntity;
 import net.minecraft.item.ItemGroup;
@@ -28,12 +30,21 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("villainoussummons")
 
 public class VillainousSummon
 {
 
+    /*
+        This array list is what will be checked for what should and should not have a target AI set for turrets.
+        If there is an AI that uses monster code that shouldn't be targetted (like VexMinions in this mod) or mob AIs that
+        behave unexpectedly (such as endermen or spiders who aggro due to lack of access to their special targetting conditions) then
+        they should be added in as soon as possible. (Before a level loads)
+     */
+    public static ArrayList<EntityType> EXCEMPTFROMMODIFICATION = new ArrayList<>();
     public static final String MOD_ID = "villainoussummons";
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
@@ -55,6 +66,10 @@ public class VillainousSummon
 
     private void setup(final FMLCommonSetupEvent event)
     {
+        EXCEMPTFROMMODIFICATION.add(Register.VEXMINION.get());
+        EXCEMPTFROMMODIFICATION.add(EntityType.ENDERMAN);
+        EXCEMPTFROMMODIFICATION.add(EntityType.SPIDER);
+        EXCEMPTFROMMODIFICATION.add(EntityType.CAVE_SPIDER);
         DeferredWorkQueue.runLater(() -> {
             GlobalEntityTypeAttributes.put(Register.SLIMEMOUNT.get(), SlimeMount.customAttributes().build());
             GlobalEntityTypeAttributes.put(Register.HORSEMOUNT.get(), HorseMount.customAttributes().build());

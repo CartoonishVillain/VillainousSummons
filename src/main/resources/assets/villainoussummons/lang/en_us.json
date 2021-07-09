@@ -1,5 +1,10 @@
 {
   "itemGroup.villainoussummons": "Villainous Summons and Defenses",
+  "entity.villainoussummons.turretarrow": "Turret Arrow",
+  "entity.villainoussummons.ballistaarrow": "Ballista Arrow",
+  "entity.villainoussummons.slimeprojectile": "Slime Projectile",
+  "entity.villainoussummons.innatecannonballprojectile": "A Thrown Cannonball",
+  "entity.villainoussummons.cannonballprojectile": "A Launched Cannonball",
   "entity.villainoussummons.arrowturretmk1": "Arrow Turret MK1",
   "entity.villainoussummons.fireturretmk1": "Fire Turret MK1",
   "entity.villainoussummons.slimeturretmk1": "Slime Turret MK1",
@@ -33,5 +38,15 @@
   "item.villainoussummons.arcaneturretmk3summon": "Arcane Turret MK3",
   "item.villainoussummons.ballistaturretmk3summon": "Ballista Turret MK3",
   "item.villainoussummons.cannonturretmk3summon": "Cannon Turret MK3",
-  "item.villainoussummons.rapidarrowturretmk4summon": "Rapid Fire Arrow Turret MK4"
+  "item.villainoussummons.rapidarrowturretmk4summon": "Rapid Fire Arrow Turret MK4",
+  "item.villainoussummons.redstonebrain": "Redstone Brain",
+  "item.villainoussummons.emptymk1shell": "Empty MK1 Shell",
+  "item.villainoussummons.pouchofarrows": "Pouch of Arrows",
+  "item.villainoussummons.pouchoffuel": "Pouch of Fuel",
+  "item.villainoussummons.pouchofslime": "Pouch of Slime",
+  "item.villainoussummons.ironturretstand": "Iron Turret Stand",
+  "item.villainoussummons.emptymk2shell": "Empty MK2 Shell",
+  "item.villainoussummons.diamondturretstand": "Diamond Turret Stand",
+  "item.villainoussummons.emptymk3shell": "Empty MK3 Shell",
+  "item.villainoussummons.cannonball": "Cannonball"
 }
