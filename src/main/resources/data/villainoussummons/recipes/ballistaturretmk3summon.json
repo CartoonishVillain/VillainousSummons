@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#DC",
+    "TAC",
+    "TTC"
+  ],
+  "key": {
+    "#": {
+      "item": "villainoussummons:redstonebrain"
+    },
+    "D": {
+      "item": "villainoussummons:emptymk3shell"
+    },
+    "C": {
+      "item": "minecraft:crossbow"
+    },
+    "A": {
+      "item": "villainoussummons:diamondturretstand"
+    },
+    "T": {
+      "item": "villainoussummons:pouchofarrows"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:ballistaturretmk3summon",
+    "count": 1
+  }
+}

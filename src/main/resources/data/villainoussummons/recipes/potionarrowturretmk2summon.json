@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#FD",
+    " A ",
+    "SFS"
+  ],
+  "key": {
+    "#": {
+      "item": "villainoussummons:arrowturretmk1summon"
+    },
+    "F": {
+      "item": "minecraft:brewing_stand"
+    },
+    "S": {
+      "item": "minecraft:slime_ball"
+    },
+    "D": {
+      "item": "villainoussummons:slimeturretmk1summon"
+    },
+    "A": {
+      "item": "villainoussummons:ironturretstand"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:potionarrowturretmk2summon",
+    "count": 1
+  }
+}

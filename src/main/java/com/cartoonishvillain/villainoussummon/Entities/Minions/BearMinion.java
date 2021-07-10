@@ -11,7 +11,9 @@ import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.PolarBearEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
+import java.util.Set;
 import java.util.function.Predicate;
 
 public class BearMinion extends PolarBearEntity {
@@ -34,11 +36,14 @@ public class BearMinion extends PolarBearEntity {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new SwimGoal(this));
-        this.goalSelector.addGoal(1, new BearMinion.MeleeAttackGoal());
-        this.goalSelector.addGoal(5, new RandomWalkingGoal(this, 1.0D));
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, LivingEntity.class));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, MonsterEntity.class, 16, true, false,  ATTACK_PREDICATE));
+        super.registerGoals();
+        Set<PrioritizedGoal> prioritizedGoals = ObfuscationReflectionHelper.getPrivateValue(GoalSelector.class, this.goalSelector, "field_220892_d");
+        if(prioritizedGoals != null) {
+            for (PrioritizedGoal prioritizedGoal : prioritizedGoals) {
+                this.targetSelector.removeGoal(prioritizedGoal);
+            }
+        }
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, MonsterEntity.class, 10, true, false, ATTACK_PREDICATE));
 
     }
 
@@ -48,46 +53,4 @@ public class BearMinion extends PolarBearEntity {
         if(tickCount >= 90*20) this.remove();
     }
 
-    /*
-    These goals are from mojang using their official mappings.
-    I just needed to access them here.
-     */
-
-    class MeleeAttackGoal extends net.minecraft.entity.ai.goal.MeleeAttackGoal {
-        public MeleeAttackGoal() {
-            super(BearMinion.this, 1.25D, true);
-        }
-
-        protected void checkAndPerformAttack(LivingEntity p_190102_1_, double p_190102_2_) {
-            double d0 = this.getAttackReachSqr(p_190102_1_);
-            if (p_190102_2_ <= d0 && this.isTimeToAttack()) {
-                this.resetAttackCooldown();
-                this.mob.doHurtTarget(p_190102_1_);
-                BearMinion.this.setStanding(false);
-            } else if (p_190102_2_ <= d0 * 2.0D) {
-                if (this.isTimeToAttack()) {
-                    BearMinion.this.setStanding(false);
-                    this.resetAttackCooldown();
-                }
-
-                if (this.getTicksUntilNextAttack() <= 10) {
-                    BearMinion.this.setStanding(true);
-                    BearMinion.this.playWarningSound();
-                }
-            } else {
-                this.resetAttackCooldown();
-                BearMinion.this.setStanding(false);
-            }
-
-        }
-
-        public void stop() {
-            BearMinion.this.setStanding(false);
-            super.stop();
-        }
-
-        protected double getAttackReachSqr(LivingEntity p_179512_1_) {
-            return (double)(4.0F + p_179512_1_.getBbWidth());
-        }
-    }
 }

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#LB",
+    "L/L",
+    "MIM"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:bone"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "B": {
+      "item": "minecraft:bone_block"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "M": {
+      "item": "minecraft:bookshelf"
+    },
+    "I": {
+      "item": "minecraft:lapis_block"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:fetchstick",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#D",
+    " A",
+    " T"
+  ],
+  "key": {
+    "#": {
+      "item": "villainoussummons:redstonebrain"
+    },
+    "D": {
+      "item": "villainoussummons:emptymk1shell"
+    },
+    "A": {
+      "item": "minecraft:armor_stand"
+    },
+    "T": {
+      "item": "villainoussummons:pouchofarrows"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:arrowturretmk1summon",
+    "count": 1
+  }
+}

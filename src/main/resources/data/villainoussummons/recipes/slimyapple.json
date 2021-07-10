@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#P#",
+    "PAP",
+    "#P#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:slime_block"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "A": {
+      "item": "villainoussummons:enchantedapple"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:slimyapple",
+    "count": 1
+  }
+}

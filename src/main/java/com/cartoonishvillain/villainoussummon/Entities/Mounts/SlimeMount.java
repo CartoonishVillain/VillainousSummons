@@ -32,7 +32,7 @@ public class SlimeMount extends HorseEntity{
     public static AttributeModifierMap.MutableAttribute customAttributes() {
         return MobEntity.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 10D)
-                .add(Attributes.MOVEMENT_SPEED, 0.15D)
+                .add(Attributes.MOVEMENT_SPEED, 0.155D)
                 .add(Attributes.JUMP_STRENGTH, 1.55D);
     }
 
@@ -86,70 +86,13 @@ public class SlimeMount extends HorseEntity{
     public void makeMad() {}
 
     @Override
-    public void travel(Vector3d p_213352_1_) {
-        if (this.isAlive()) {
-            if (this.isVehicle() && this.canBeControlledByRider()) {
-                LivingEntity livingentity = (LivingEntity)this.getControllingPassenger();
-                this.yRot = livingentity.yRot;
-                this.yRotO = this.yRot;
-                this.xRot = livingentity.xRot * 0.5F;
-                this.setRot(this.yRot, this.xRot);
-                this.yBodyRot = this.yRot;
-                this.yHeadRot = this.yBodyRot;
-                float f = livingentity.xxa * 0.5F;
-                float f1 = livingentity.zza;
-                if (f1 <= 0.0F) {
-                    f1 *= 0.25F;
-                    this.gallopSoundCounter = 0;
-                }
+    public boolean canBeControlledByRider() {
+        return true;
+    }
 
-                if (this.onGround && this.playerJumpPendingScale == 0.0F && this.isStanding()) {
-                    f = 0.0F;
-                    f1 = 0.0F;
-                }
-
-                if (this.playerJumpPendingScale > 0.0F && !this.isJumping() && this.onGround) {
-                    double d0 = this.getCustomJump() * (double)this.playerJumpPendingScale * (double)this.getBlockJumpFactor();
-                    double d1;
-                    if (this.hasEffect(Effects.JUMP)) {
-                        d1 = d0 + (double)((float)(this.getEffect(Effects.JUMP).getAmplifier() + 1) * 0.1F);
-                    } else {
-                        d1 = d0;
-                    }
-
-                    Vector3d vector3d = this.getDeltaMovement();
-                    this.setDeltaMovement(vector3d.x, d1, vector3d.z);
-                    this.setIsJumping(true);
-                    this.hasImpulse = true;
-                    net.minecraftforge.common.ForgeHooks.onLivingJump(this);
-                    if (f1 > 0.0F) {
-                        float f2 = MathHelper.sin(this.yRot * ((float)Math.PI / 180F));
-                        float f3 = MathHelper.cos(this.yRot * ((float)Math.PI / 180F));
-                        this.setDeltaMovement(this.getDeltaMovement().add((double)(-0.4F * f2 * this.playerJumpPendingScale), 0.0D, (double)(0.4F * f3 * this.playerJumpPendingScale)));
-                    }
-
-                    this.playerJumpPendingScale = 0.0F;
-                }
-
-                this.flyingSpeed = this.getSpeed() * 0.1F;
-                if (this.isControlledByLocalInstance()) {
-                    this.setSpeed((float)this.getAttributeValue(Attributes.MOVEMENT_SPEED));
-                    super.travel(new Vector3d((double)f, p_213352_1_.y, (double)f1));
-                } else if (livingentity instanceof PlayerEntity) {
-                    this.setDeltaMovement(Vector3d.ZERO);
-                }
-
-                if (this.onGround) {
-                    this.playerJumpPendingScale = 0.0F;
-                    this.setIsJumping(false);
-                }
-
-                this.calculateEntityAnimation(this, false);
-            } else {
-                this.flyingSpeed = 0.02F;
-                super.travel(p_213352_1_);
-            }
-        }
+    @Override
+    public boolean isSaddled() {
+        return true;
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -178,7 +121,7 @@ public class SlimeMount extends HorseEntity{
 //            float f = MathHelper.cos(this.yBodyRot * ((float)Math.PI / 180F));
 //            float f1 = 0.7F;
 //            float f2 = 0.15F;
-            p_184232_1_.setPos(this.getX(), this.getY(), this.getZ());
+            p_184232_1_.setPos(this.getX(), this.getY()+0.5, this.getZ());
 //            p_184232_1_.setPos(this.getX() + (double)(f1 * f3), this.getY() + this.getPassengersRidingOffset() + p_184232_1_.getMyRidingOffset() + (double)f2, this.getZ() - (double)(f1 * f));
             if (p_184232_1_ instanceof LivingEntity) {
                 ((LivingEntity)p_184232_1_).yBodyRot = this.yBodyRot;
@@ -210,6 +153,7 @@ public class SlimeMount extends HorseEntity{
         }
     }
 
+
     @Override
     protected boolean isImmobile() {return false;}
 
@@ -234,6 +178,8 @@ public class SlimeMount extends HorseEntity{
     @Override
     public void tick() {
         super.tick();
+
+//        this.playerJumpPendingScale = 1f;
 
         if (tickCount % 100 == 0) {if (this.getControllingPassenger() == null) this.remove();}
 

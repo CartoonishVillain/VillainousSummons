@@ -14,7 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class RenderManager {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event){
-            RenderingRegistry.registerEntityRenderingHandler(Register.SLIMEMOUNT.get(), RenderSlimeMount::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.SLIMEMOUNT.get(), SlimeMountRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.HORSEMOUNT.get(), HorseRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.WOLFMINION.get(), WolfRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.VEXMINION.get(), VexRenderer::new);
@@ -32,7 +32,9 @@ public class RenderManager {
             RenderingRegistry.registerEntityRenderingHandler(Register.ARCANETURRETMK3.get(), RenderTurretMK3::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.RAPIDARROWTURRETMK4.get(), RenderTurretMK3::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.TURRETARROW.get(), TippedArrowRenderer::new);
+            RenderingRegistry.registerEntityRenderingHandler(Register.BALLISTAARROW.get(), TippedArrowRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(Register.SLIMEPROJECTILE.get(), new GenericItemProjectileRenderFactory());
             RenderingRegistry.registerEntityRenderingHandler(Register.INNATECANONBALL.get(), new GenericItemProjectileRenderFactory());
+            RenderingRegistry.registerEntityRenderingHandler(Register.CANNONBALLPROJECTILE.get(), new GenericItemProjectileRenderFactory());
         }
 }

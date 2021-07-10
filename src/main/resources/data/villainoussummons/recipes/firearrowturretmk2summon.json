@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#FD",
+    " A ",
+    "FFF"
+  ],
+  "key": {
+    "#": {
+      "item": "villainoussummons:arrowturretmk1summon"
+    },
+    "F": {
+      "item": "minecraft:flint_and_steel"
+    },
+    "D": {
+      "item": "villainoussummons:fireturretmk1summon"
+    },
+    "A": {
+      "item": "villainoussummons:ironturretstand"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:firearrowturretmk2summon",
+    "count": 1
+  }
+}

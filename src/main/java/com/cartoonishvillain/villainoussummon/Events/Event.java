@@ -9,8 +9,12 @@ import com.cartoonishvillain.villainoussummon.Entities.Turrets.TurretTemplate;
 import com.cartoonishvillain.villainoussummon.Register;
 import com.cartoonishvillain.villainoussummon.VillainousSummon;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.goal.Goal;
+import net.minecraft.entity.ai.goal.GoalSelector;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.ai.goal.PrioritizedGoal;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -23,8 +27,12 @@ import net.minecraftforge.event.entity.EntityLeaveWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Set;
+import java.util.function.Predicate;
 
 @Mod.EventBusSubscriber(modid = VillainousSummon.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class Event {
@@ -122,4 +130,42 @@ public class Event {
             entity.targetSelector.addGoal(20, new NearestAttackableTargetGoal<>(entity, TurretTemplate.class, true));
         }
     }
+
+    @SubscribeEvent
+    public static void MinionTargetChanger(EntityJoinWorldEvent event){
+        Entity sEntity = event.getEntity();
+        if(sEntity instanceof VexMinion && !sEntity.level.isClientSide()){
+            VexMinion entity = (VexMinion) sEntity;
+            Set<PrioritizedGoal> prioritizedGoals = ObfuscationReflectionHelper.getPrivateValue(GoalSelector.class, entity.targetSelector, "field_220892_d");
+            ArrayList<Goal> toRemove = new ArrayList<>();
+            if(prioritizedGoals != null) {
+                for (PrioritizedGoal prioritizedGoal : prioritizedGoals) {
+                    toRemove.add(prioritizedGoal.getGoal());
+                }
+            }
+            for(Goal goal : toRemove){
+                entity.targetSelector.removeGoal(goal);
+            }
+            entity.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(entity, MonsterEntity.class, 16, true, false,  ATTACK_PREDICATE));
+        }
+        else if(sEntity instanceof BearMinion && !sEntity.level.isClientSide()){
+            BearMinion entity = (BearMinion) sEntity;
+            Set<PrioritizedGoal> prioritizedGoals = ObfuscationReflectionHelper.getPrivateValue(GoalSelector.class, entity.targetSelector, "field_220892_d");
+            ArrayList<Goal> toRemove = new ArrayList<>();
+            if(prioritizedGoals != null) {
+                for (PrioritizedGoal prioritizedGoal : prioritizedGoals) {
+                    toRemove.add(prioritizedGoal.getGoal());
+                }
+            }
+            for(Goal goal : toRemove){
+                entity.targetSelector.removeGoal(goal);
+            }
+            entity.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(entity, MonsterEntity.class, 16, true, false,  ATTACK_PREDICATE));
+        }
+    }
+
+    public static final Predicate<LivingEntity> ATTACK_PREDICATE = (p_213440_0_) -> {
+        EntityType<?> entitytype = p_213440_0_.getType();
+        return entitytype != Register.VEXMINION.get() && entitytype != EntityType.CREEPER;
+    };
 }

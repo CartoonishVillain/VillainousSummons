@@ -1,5 +1,6 @@
 package com.cartoonishvillain.villainoussummon.Entities.Projectiles;
 
+import net.minecraft.client.renderer.entity.SlimeRenderer;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
@@ -26,4 +27,5 @@ public abstract class GenericItemProjectile extends ProjectileItemEntity {
     public IPacket<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
+
 }

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#DF",
+    "BAE",
+    "BBB"
+  ],
+  "key": {
+    "#": {
+      "item": "villainoussummons:redstonebrain"
+    },
+    "D": {
+      "item": "villainoussummons:emptymk3shell"
+    },
+    "F": {
+      "item": "minecraft:ender_eye"
+    },
+    "E": {
+      "item": "minecraft:enchanting_table"
+    },
+    "A": {
+      "item": "villainoussummons:diamondturretstand"
+    },
+    "B": {
+      "item": "minecraft:bookshelf"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:arcaneturretmk3summon",
+    "count": 1
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#LH",
+    "LAL",
+    "BFB"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:golden_apple"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "H": {
+      "item": "minecraft:hay_block"
+    },
+    "A": {
+      "item": "minecraft:apple"
+    },
+    "B": {
+      "item": "minecraft:bookshelf"
+    },
+    "F": {
+      "item": "minecraft:lapis_block"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:enchantedapple",
+    "count": 1
+  }
+}

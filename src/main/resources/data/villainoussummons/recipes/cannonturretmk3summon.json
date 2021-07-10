@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#DF",
+    "EAE",
+    "EEE"
+  ],
+  "key": {
+    "#": {
+      "item": "villainoussummons:redstonebrain"
+    },
+    "D": {
+      "item": "villainoussummons:emptymk3shell"
+    },
+    "F": {
+      "item": "villainoussummons:cannonball"
+    },
+    "E": {
+      "item": "minecraft:tnt"
+    },
+    "A": {
+      "item": "villainoussummons:diamondturretstand"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:cannonturretmk3summon",
+    "count": 1
+  }
+}

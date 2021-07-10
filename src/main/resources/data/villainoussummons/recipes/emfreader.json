@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "iS#",
+    "iRi"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:repeater"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:soul_sand"
+    },
+    "R": {
+      "item": "villainoussummons:redstonebrain"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:emfreader",
+    "count": 1
+  }
+}

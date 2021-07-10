@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#DI",
+    " A ",
+    "PEP"
+  ],
+  "key": {
+    "#": {
+      "item": "villainoussummons:redstonebrain"
+    },
+    "D": {
+      "item": "villainoussummons:emptymk2shell"
+    },
+    "I": {
+      "item": "minecraft:ender_eye"
+    },
+    "A": {
+      "item": "villainoussummons:ironturretstand"
+    },
+    "P": {
+      "item": "minecraft:glowstone"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:scoutturretmk2summon",
+    "count": 1
+  }
+}

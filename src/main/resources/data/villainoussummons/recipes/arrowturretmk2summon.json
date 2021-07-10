@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#DI",
+    " A ",
+    "PEP"
+  ],
+  "key": {
+    "#": {
+      "item": "villainoussummons:redstonebrain"
+    },
+    "D": {
+      "item": "villainoussummons:emptymk2shell"
+    },
+    "I": {
+      "item": "minecraft:dispenser"
+    },
+    "A": {
+      "item": "villainoussummons:ironturretstand"
+    },
+    "P": {
+      "item": "villainoussummons:pouchofarrows"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "result": {
+    "item": "villainoussummons:arrowturretmk2summon",
+    "count": 1
+  }
+}

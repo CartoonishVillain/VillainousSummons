@@ -37,7 +37,6 @@ import java.util.ArrayList;
 
 public class VillainousSummon
 {
-
     /*
         This array list is what will be checked for what should and should not have a target AI set for turrets.
         If there is an AI that uses monster code that shouldn't be targetted (like VexMinions in this mod) or mob AIs that
