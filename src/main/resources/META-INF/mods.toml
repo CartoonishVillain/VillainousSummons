@@ -36,7 +36,7 @@ authors="Cartoonish Villain" #optional
 description='''
 Villainous Summons and Defenses adds several mobs you can summon, some will follow you to the ends of the earth to protect you, others will only attack nearby mobs, and some are mounts to ride around on.
 
-The mod also adds several stationary defense turrets you can craft in order to keep mobs (or potentially players) off your lawn.
+The mod also adds several stationary defense turrets you can craft to help keep mobs off your lawn.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.examplemod]] #optional

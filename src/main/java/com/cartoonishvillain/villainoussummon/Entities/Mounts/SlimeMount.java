@@ -179,7 +179,6 @@ public class SlimeMount extends HorseEntity{
     public void tick() {
         super.tick();
 
-//        this.playerJumpPendingScale = 1f;
 
         if (tickCount % 100 == 0) {if (this.getControllingPassenger() == null) this.remove();}
 
@@ -212,7 +211,7 @@ public class SlimeMount extends HorseEntity{
                 }
             }
 
-            if(this.getControllingPassenger() instanceof PlayerEntity && bounceOnEntity) {
+            if(this.getControllingPassenger() instanceof PlayerEntity && bounceOnEntity && !this.level.isClientSide()) {
                 Vector3d vector3d = getDeltaMovement();
                 this.setDeltaMovement(0, 1.5, 0);
                 this.fallDistance = 0;

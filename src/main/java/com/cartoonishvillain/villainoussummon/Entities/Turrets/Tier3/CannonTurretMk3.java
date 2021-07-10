@@ -60,7 +60,7 @@ public class CannonTurretMk3 extends BaseTurretsMK3 implements IRangedAttackMob 
 
     @Override
     public void performRangedAttack(LivingEntity p_82196_1_, float p_82196_2_) {
-        if(p_82196_1_ != null && p_82196_1_.isAlive() && !(p_82196_1_.distanceTo(this) < 3)){
+        if(p_82196_1_ != null && p_82196_1_.isAlive()){
             CannonballProjectile projectileItemEntity = new CannonballProjectile(Register.SLIMEPROJECTILE.get(), this, this.level);
             double initheight = p_82196_1_.getEyeY() - 1.1f;
             double x = p_82196_1_.getX() - this.getX();

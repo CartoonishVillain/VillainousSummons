@@ -117,6 +117,7 @@ public class Event {
         PlayerEntity playerEntity = event.player;
         if(playerEntity.tickCount == 10){
             if(playerEntity.getVehicle() instanceof SlimeMount || playerEntity.getVehicle() instanceof HorseMount){
+                if(!playerEntity.isCreative() && !playerEntity.isSpectator()){playerEntity.abilities.mayfly = false;}
                 playerEntity.stopRiding();
             }
         }

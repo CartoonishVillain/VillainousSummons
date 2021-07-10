@@ -67,7 +67,7 @@ public class Register {
 
 
 
-    public static final RegistryObject<Item> SLIMESUMMON = ITEMS.register("slimyapple", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(30), new String[] {TextFormatting.BLUE + "Summons a large slime to ride around on!", TextFormatting.BLUE + "Can bounce on enemies, jump high, and reduces fall damage!"}, 5));
+    public static final RegistryObject<Item> SLIMESUMMON = ITEMS.register("slimyapple", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(30), new String[] {TextFormatting.BLUE + "Summons a large slime to ride around on!", TextFormatting.BLUE + "Can bounce on enemies, jump high, and reduces fall damage!", TextFormatting.RED + "Prone to kicks for flying if flying is not enabled!"}, 5));
     public static final RegistryObject<Item> HORSESUMMON = ITEMS.register("enchantedapple", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons an average horse to ride around on!"}, 5));
     public static final RegistryObject<Item> WOLFSUMMON = ITEMS.register("fetchstick", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary, but loyal pack of wolves to protect you!"}, 120));
     public static final RegistryObject<Item> VEXSUMMON = ITEMS.register("emfreader", () -> new ItemWithLore(new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1).defaultDurability(50), new String[] {TextFormatting.BLUE + "Summons a temporary swarm of vex to attack monsters!", TextFormatting.RED + "Golems and some other mobs may not be very happy about this."}, 60));
@@ -89,8 +89,6 @@ public class Register {
 
     public static final RegistryObject<Item> RAPIDARROWTURRETMK4SUMMON = ITEMS.register("rapidarrowturretmk4summon", () -> new TurretPlacementItem(Register.RAPIDARROWTURRETMK4, 16777215, 16777215, new Item.Properties().tab(VillainousSummon.TAB).stacksTo(1), new String[]{TextFormatting.LIGHT_PURPLE + "Creative only!", TextFormatting.LIGHT_PURPLE + "Fires arrows at an alarming rate."}));
 
-
-    //TODO: IMPLEMENT CRAFTING, LOCALIZATION, AND TEXTURING OF THE BELOW
     public static final RegistryObject<Item> REDSTONEBRAIN = ITEMS.register("redstonebrain", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));
     public static final RegistryObject<Item> EMPTYT1SHELL = ITEMS.register("emptymk1shell", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));
     public static final RegistryObject<Item> POUCHOFARROWS = ITEMS.register("pouchofarrows", () -> new Item(new Item.Properties().tab(VillainousSummon.TAB)));

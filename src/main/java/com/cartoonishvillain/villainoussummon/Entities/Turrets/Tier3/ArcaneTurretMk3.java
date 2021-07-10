@@ -60,7 +60,7 @@ public class ArcaneTurretMk3 extends BaseTurretsMK3 implements IRangedAttackMob 
 
     @Override
     public void performRangedAttack(LivingEntity p_82196_1_, float p_82196_2_) {
-        if(p_82196_1_ != null && p_82196_1_.isAlive() && !(MathHelper.sqrt(p_82196_1_.distanceTo(this)) < 1)){
+        if(p_82196_1_ != null && p_82196_1_.isAlive()){
             LightningBoltEntity lightningBoltEntity = new LightningBoltEntity(EntityType.LIGHTNING_BOLT, this.level);
             lightningBoltEntity.setPos(p_82196_1_.getX(), p_82196_1_.getY(), p_82196_1_.getZ());
             p_82196_1_.level.addFreshEntity(lightningBoltEntity);
