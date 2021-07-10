@@ -6,7 +6,12 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public abstract class TurretTemplate extends GolemEntity implements IRangedAttackMob {
 
@@ -45,6 +50,18 @@ public abstract class TurretTemplate extends GolemEntity implements IRangedAttac
         if(this.hasEffect(Effects.WITHER)){removeEffect(Effects.WITHER);}
         //this line is just because of some targeting badness with the AI I encountered sometimes. (Would fire at dead targets if nothing else was around to fire at.)
         if(this.getTarget() != null && !this.getTarget().isAlive()){this.setTarget(null);}
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
+        return SoundEvents.ANVIL_LAND;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ANVIL_DESTROY;
     }
 
     @Override
