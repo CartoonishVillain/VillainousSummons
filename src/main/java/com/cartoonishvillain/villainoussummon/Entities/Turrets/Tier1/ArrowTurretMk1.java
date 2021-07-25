@@ -11,6 +11,8 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.level.Level;
 
 public class ArrowTurretMk1 extends BaseTurretsMK1 implements RangedAttackMob {
@@ -34,7 +36,7 @@ public class ArrowTurretMk1 extends BaseTurretsMK1 implements RangedAttackMob {
 
     @Override
     public void performRangedAttack(LivingEntity p_82196_1_, float p_82196_2_) {
-        if(p_82196_1_ != null && p_82196_1_.isAlive()){
+        if(!p_82196_1_.isAlive() && !level.isClientSide()) {this.setTarget(null); return;}
         TurretArrow arrowEntity = new TurretArrow(this.level, this);
         double initheight = p_82196_1_.getEyeY() - 1.1f;
         double x = p_82196_1_.getX() - this.getX();
@@ -43,6 +45,7 @@ public class ArrowTurretMk1 extends BaseTurretsMK1 implements RangedAttackMob {
         float f = Mth.sqrt((float) (x * x + z * z))*0.2f;
         this.playSound(SoundEvents.DISPENSER_LAUNCH, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         this.level.addFreshEntity(arrowEntity);
-        arrowEntity.shoot(x, y+f, z, 1.6f, 5);}
+        arrowEntity.shoot(x, y+f, z, 1.6f, 5);
+
     }
 }

@@ -28,11 +28,6 @@ public class SlimeMountModel<S extends Horse> extends EntityModel<SlimeMount> {
 		super(RenderType::entityCutoutNoCull);
 		this.Slime = part.getChild(SLIME);
 		this.Slime.setPos(0, 24, 0);
-//		texWidth = 64;
-//		texHeight = 64;
-
-//		Slime = new ModelPart();
-
 	}
 
 	public static LayerDefinition createLayer() {

@@ -1,5 +1,6 @@
 package com.cartoonishvillain.villainoussummon.Entities.Projectiles;
 
+import net.minecraft.network.protocol.Packet;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -13,8 +14,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
-public class SlimeballProjectile extends GenericItemProjectile {
+public class SlimeballProjectile extends ThrowableItemProjectile {
 
     public SlimeballProjectile(EntityType<? extends ThrowableItemProjectile> p_i50155_1_, Level p_i50155_2_) {
         super(p_i50155_1_, p_i50155_2_);
@@ -28,17 +30,16 @@ public class SlimeballProjectile extends GenericItemProjectile {
         super(p_i50157_1_, p_i50157_2_, p_i50157_3_);
     }
 
-    @Override
+
     protected Item getDefaultItem() {
         return Items.SLIME_BALL;
     }
 
-    @Override
+
     public ItemStack getItem() {
         return new ItemStack(Items.SLIME_BALL);
     }
 
-    @Override
     protected void onHitEntity(EntityHitResult entityRayTraceResult) {
         super.onHitEntity(entityRayTraceResult);
         Entity entity = entityRayTraceResult.getEntity();
@@ -50,10 +51,14 @@ public class SlimeballProjectile extends GenericItemProjectile {
 
     }
 
-    @Override
     protected void onHitBlock(BlockHitResult p_230299_1_) {
         super.onHitBlock(p_230299_1_);
         this.remove(false);
+    }
+
+    @Override
+    public Packet<?> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
     }
 
 }

@@ -21,9 +21,6 @@ public abstract class GenericItemProjectile extends ThrowableItemProjectile {
         super(p_i50157_1_, p_i50157_2_, p_i50157_3_);
     }
 
-    @Override
-    public Packet<?> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
-    }
+
 
 }

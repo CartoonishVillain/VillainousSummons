@@ -1,11 +1,13 @@
 package com.cartoonishvillain.villainoussummon.Entities.Projectiles;
 
+import net.minecraft.network.protocol.Packet;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
 public class TurretArrow extends Arrow {
 
@@ -38,4 +40,11 @@ public class TurretArrow extends Arrow {
         super.onHitBlock(p_230299_1_);
         this.remove(false);
     }
+
+    @Override
+    public Packet<?> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
+    }
+
+
 }

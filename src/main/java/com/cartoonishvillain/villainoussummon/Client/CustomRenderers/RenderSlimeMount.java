@@ -16,7 +16,7 @@ public class RenderSlimeMount extends MobRenderer<SlimeMount, SlimeMountModel<Sl
     protected static final ResourceLocation TEXTURE = new ResourceLocation(VillainousSummon.MOD_ID, "textures/entity/slime.png");
 
     public RenderSlimeMount(EntityRendererProvider.Context p_174304_) {
-        super(p_174304_, new SlimeMountModel<SlimeMount>(Minecraft.getInstance().getEntityModels().bakeLayer(RenderManager.BELT_LAYER)), 0.5f);
+        super(p_174304_, new SlimeMountModel<SlimeMount>(Minecraft.getInstance().getEntityModels().bakeLayer(RenderManager.SLIMEMOUNT)), 0.5f);
     }
 
 
