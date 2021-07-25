@@ -1,5 +1,6 @@
 package com.cartoonishvillain.villainoussummon.Items;
 
+import com.mojang.authlib.GameProfile;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
@@ -42,8 +43,7 @@ public class TurretPlacementItem extends SpawnEggItem {
     }
 
     public static void initSpawnEggs() {
-        //TODO REMAP
-        final Map<EntityType<?>, SpawnEggItem> EGGS = ObfuscationReflectionHelper.getPrivateValue(SpawnEggItem.class, null, "field_195987_b");
+        final Map<EntityType<?>, SpawnEggItem> EGGS = ObfuscationReflectionHelper.getPrivateValue(SpawnEggItem.class, null, "f_43201_");
     }
 
         @Override
