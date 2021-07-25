@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
-public class CannonballProjectile extends GenericItemProjectile {
+public class CannonballProjectile extends ThrowableItemProjectile {
 
     public CannonballProjectile(EntityType<? extends ThrowableItemProjectile> p_i50155_1_, Level p_i50155_2_) {
         super(p_i50155_1_, p_i50155_2_);

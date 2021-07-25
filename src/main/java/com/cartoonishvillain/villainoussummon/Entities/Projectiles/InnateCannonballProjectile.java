@@ -16,7 +16,7 @@ import net.minecraft.world.phys.EntityHitResult;
 
 import java.util.Random;
 
-public class InnateCannonballProjectile extends GenericItemProjectile {
+public class InnateCannonballProjectile extends ThrowableItemProjectile {
 
     public InnateCannonballProjectile(EntityType<? extends ThrowableItemProjectile> p_i50155_1_, Level p_i50155_2_) {
         super(p_i50155_1_, p_i50155_2_);

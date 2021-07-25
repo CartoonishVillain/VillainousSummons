@@ -47,7 +47,7 @@ public class RenderManager {
             EntityRenderers.register(Register.BALLISTATURRETMK3.get(), RenderTurretMK3::new);
             EntityRenderers.register(Register.ARCANETURRETMK3.get(), RenderTurretMK3::new);
             EntityRenderers.register(Register.RAPIDARROWTURRETMK4.get(), RenderTurretMK3::new);
-            EntityRenderers.register(Register.TURRETARROW.get(), TippableArrowRenderer::new);
+            EntityRenderers.register(Register.TURRETARROW.get(), TurretArrowRenderer::new);
             EntityRenderers.register(Register.BALLISTAARROW.get(), TippableArrowRenderer::new);
             EntityRenderers.register(Register.SLIMEPROJECTILE.get(), (Context) -> {
                 return new ThrownItemRenderer<>(Context, 1.0F, false);
