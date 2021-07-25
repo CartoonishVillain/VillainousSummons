@@ -13,12 +13,10 @@ import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.ArcaneTurre
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.BallistaTurretMk3;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3.CannonTurretMk3;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier4.RapidArrowTurretMk4;
-import com.cartoonishvillain.villainoussummon.Items.CannonballItem;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
-import net.minecraft.entity.monster.WitchEntity;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.DefaultAttributes;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
@@ -69,25 +67,25 @@ public class VillainousSummon
         EXCEMPTFROMMODIFICATION.add(EntityType.ENDERMAN);
         EXCEMPTFROMMODIFICATION.add(EntityType.SPIDER);
         EXCEMPTFROMMODIFICATION.add(EntityType.CAVE_SPIDER);
-        DeferredWorkQueue.runLater(() -> {
-            GlobalEntityTypeAttributes.put(Register.SLIMEMOUNT.get(), SlimeMount.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.HORSEMOUNT.get(), HorseMount.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.WOLFMINION.get(), WolfMinion.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.VEXMINION.get(), VexMinion.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.BEARMINION.get(), BearMinion.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.ARROWTURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.FIRETURRETMK1.get(), FireTurretMk1.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.SLIMETURRETMK1.get(), SlimeTurretMk1.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.ARROWTURRETMK2.get(), ArrowTurretMk2.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.SCOUTTURRETMK2.get(), ScoutTurretMK2.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.FIRETURRETMK2.get(), FireTurretMk2.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.FIREARROWTURRETMK2.get(), FireArrowTurretMk2.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.POTIONARROWTURRETMK2.get(), PotionArrowTurretMk2.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.CANNONTURRETMK3.get(), CannonTurretMk3.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.ARCANETURRETMK3.get(), ArcaneTurretMk3.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.BALLISTATURRETMK3.get(), BallistaTurretMk3.customAttributes().build());
-            GlobalEntityTypeAttributes.put(Register.RAPIDARROWTURRETMK4.get(), RapidArrowTurretMk4.customAttributes().build());
-        });
+//        DeferredWorkQueue.runLater(() -> {
+//            DefaultAttributes.put(Register.SLIMEMOUNT.get(), SlimeMount.customAttributes().build());
+//            DefaultAttributes.put(Register.HORSEMOUNT.get(), HorseMount.customAttributes().build());
+//            DefaultAttributes.put(Register.WOLFMINION.get(), WolfMinion.customAttributes().build());
+//            DefaultAttributes.put(Register.VEXMINION.get(), VexMinion.customAttributes().build());
+//            DefaultAttributes.put(Register.BEARMINION.get(), BearMinion.customAttributes().build());
+//            DefaultAttributes.put(Register.ARROWTURRETMK1.get(), ArrowTurretMk1.customAttributes().build());
+//            DefaultAttributes.put(Register.FIRETURRETMK1.get(), FireTurretMk1.customAttributes().build());
+//            DefaultAttributes.put(Register.SLIMETURRETMK1.get(), SlimeTurretMk1.customAttributes().build());
+//            DefaultAttributes.put(Register.ARROWTURRETMK2.get(), ArrowTurretMk2.customAttributes().build());
+//            DefaultAttributes.put(Register.SCOUTTURRETMK2.get(), ScoutTurretMK2.customAttributes().build());
+//            DefaultAttributes.put(Register.FIRETURRETMK2.get(), FireTurretMk2.customAttributes().build());
+//            DefaultAttributes.put(Register.FIREARROWTURRETMK2.get(), FireArrowTurretMk2.customAttributes().build());
+//            DefaultAttributes.put(Register.POTIONARROWTURRETMK2.get(), PotionArrowTurretMk2.customAttributes().build());
+//            DefaultAttributes.put(Register.CANNONTURRETMK3.get(), CannonTurretMk3.customAttributes().build());
+//            DefaultAttributes.put(Register.ARCANETURRETMK3.get(), ArcaneTurretMk3.customAttributes().build());
+//            DefaultAttributes.put(Register.BALLISTATURRETMK3.get(), BallistaTurretMk3.customAttributes().build());
+//            DefaultAttributes.put(Register.RAPIDARROWTURRETMK4.get(), RapidArrowTurretMk4.customAttributes().build());
+//        });
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -121,7 +119,7 @@ public class VillainousSummon
 //        }
 //    }
 
-    public static final ItemGroup TAB = new ItemGroup("villainoussummons") {
+    public static final CreativeModeTab TAB = new CreativeModeTab("villainoussummons") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(Register.SLIMESUMMON.get());

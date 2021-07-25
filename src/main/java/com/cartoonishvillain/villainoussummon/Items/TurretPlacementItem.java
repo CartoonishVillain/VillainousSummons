@@ -1,22 +1,17 @@
 package com.cartoonishvillain.villainoussummon.Items;
 
-import net.minecraft.block.DispenserBlock;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.dispenser.DefaultDispenseItemBehavior;
-import net.minecraft.dispenser.IBlockSource;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.Direction;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.Lazy;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
+import net.minecraftforge.fmllegacy.RegistryObject;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -37,21 +32,22 @@ public class TurretPlacementItem extends SpawnEggItem {
 
 
     @Override
-    public void appendHoverText(ItemStack p_77624_1_, @Nullable World p_77624_2_, List<ITextComponent> tooltip, ITooltipFlag p_77624_4_) {
+    public void appendHoverText(ItemStack p_77624_1_, @Nullable Level p_77624_2_, List<Component> tooltip, TooltipFlag p_77624_4_) {
         super.appendHoverText(p_77624_1_, p_77624_2_, tooltip, p_77624_4_);
         if(Lore != null) {
             for (String loreBit : Lore) {
-                tooltip.add(new StringTextComponent(loreBit));
+                tooltip.add(new TextComponent(loreBit));
             }
         }
     }
 
     public static void initSpawnEggs() {
+        //TODO REMAP
         final Map<EntityType<?>, SpawnEggItem> EGGS = ObfuscationReflectionHelper.getPrivateValue(SpawnEggItem.class, null, "field_195987_b");
     }
 
         @Override
-        public EntityType<?> getType(CompoundNBT nbt) {
+        public EntityType<?> getType(CompoundTag nbt) {
             return this.entityTypeSupplier.get();
         }
 }

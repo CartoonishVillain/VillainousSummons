@@ -1,37 +1,36 @@
 package com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier3;
 
 import com.cartoonishvillain.villainoussummon.Entities.Projectiles.CannonballProjectile;
-import com.cartoonishvillain.villainoussummon.Entities.Projectiles.SlimeballProjectile;
-import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.BaseTurretsMK1;
-import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1.turretTypeMK1;
-import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.BaseTurretsMK2;
-import com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier2.turretTypeMK2;
 import com.cartoonishvillain.villainoussummon.Register;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.GolemEntity;
-import net.minecraft.potion.Effects;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.AbstractGolem;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.level.Level;
 
 import java.util.function.Predicate;
 
-public class CannonTurretMk3 extends BaseTurretsMK3 implements IRangedAttackMob {
+public class CannonTurretMk3 extends BaseTurretsMK3 implements RangedAttackMob {
 
-    public CannonTurretMk3(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
+    public CannonTurretMk3(EntityType<? extends AbstractGolem> p_i50244_1_, Level p_i50244_2_) {
         super(p_i50244_1_, p_i50244_2_, turretTypeMK3.CANNON);
     }
 
 
-    public static AttributeModifierMap.MutableAttribute customAttributes(){
-        return MobEntity.createMobAttributes()
+    public static AttributeSupplier.Builder customAttributes(){
+        return Mob.createMobAttributes()
                 .add(Attributes.KNOCKBACK_RESISTANCE, 20D).add(Attributes.MAX_HEALTH, 40D).add(Attributes.MOVEMENT_SPEED, 0.0d).add(Attributes.ARMOR, 5);
     }
 
@@ -49,8 +48,8 @@ public class CannonTurretMk3 extends BaseTurretsMK3 implements IRangedAttackMob 
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25D, 80, 80F));
-        this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, MonsterEntity.class, 25, true, false, ATTACK_PREDICATE));
+        this.goalSelector.addGoal(2, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Monster.class, 25, true, false, ATTACK_PREDICATE));
     }
 
     @Override
@@ -66,12 +65,12 @@ public class CannonTurretMk3 extends BaseTurretsMK3 implements IRangedAttackMob 
             double x = p_82196_1_.getX() - this.getX();
             double y = initheight - projectileItemEntity.getY();
             double z = p_82196_1_.getZ() - this.getZ();
-            float f = MathHelper.sqrt(x * x + z * z)*0.2f;
+            float f = Mth.sqrt((float) (x * x + z * z))*0.2f;
             this.playSound(SoundEvents.FIREWORK_ROCKET_BLAST, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4f + 0.8f));
             projectileItemEntity.setPos(this.getX(), this.getEyeY(), this.getZ());
             projectileItemEntity.setOwner(this);
             this.level.addFreshEntity(projectileItemEntity);
             projectileItemEntity.shoot(x, y+f, z, 1.35f, 1.6f);}
-        else if(p_82196_1_.hasEffect(Effects.MOVEMENT_SLOWDOWN)){this.setTarget(null);}
+        else if(p_82196_1_.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)){this.setTarget(null);}
     }
 }

@@ -1,23 +1,19 @@
 package com.cartoonishvillain.villainoussummon.Entities.Turrets.Tier1;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.IRangedAttackMob;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.GolemEntity;
-import net.minecraft.entity.projectile.SmallFireballEntity;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.AbstractGolem;
+import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.projectile.SmallFireball;
+import net.minecraft.world.level.Level;
 
-public class FireTurretMk1 extends BaseTurretsMK1 implements IRangedAttackMob {
-    public FireTurretMk1(EntityType<? extends GolemEntity> p_i50244_1_, World p_i50244_2_) {
+public class FireTurretMk1 extends BaseTurretsMK1 implements RangedAttackMob {
+    public FireTurretMk1(EntityType<? extends AbstractGolem> p_i50244_1_, Level p_i50244_2_) {
         super(p_i50244_1_, p_i50244_2_, turretTypeMK1.FIRE);
     }
 
@@ -28,16 +24,16 @@ public class FireTurretMk1 extends BaseTurretsMK1 implements IRangedAttackMob {
             double x = entity.getX() - this.getX();
             double y = entity.getY() - this.getEyeY();
             double z = entity.getZ() - this.getZ();
-            float f = MathHelper.sqrt(MathHelper.sqrt(distance)) * 0.6F;
-            SmallFireballEntity smallfireballentity = new SmallFireballEntity(this.level, this, x + this.getRandom().nextGaussian() * (double)f, y, z + this.getRandom().nextGaussian() * (double)f);
+            float f = Mth.sqrt(Mth.sqrt((float) distance)) * 0.6F;
+            SmallFireball smallfireballentity = new SmallFireball(this.level, this, x + this.getRandom().nextGaussian() * (double)f, y, z + this.getRandom().nextGaussian() * (double)f);
             smallfireballentity.setPos(this.getX(), this.getEyeY(), this.getZ());
             this.playSound(SoundEvents.FIRECHARGE_USE, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4f + 0.8f));
             this.level.addFreshEntity(smallfireballentity);
         }
     }
 
-    public static AttributeModifierMap.MutableAttribute customAttributes(){
-        return MobEntity.createMobAttributes()
+    public static AttributeSupplier.Builder customAttributes(){
+        return Mob.createMobAttributes()
                 .add(Attributes.KNOCKBACK_RESISTANCE, 20D).add(Attributes.MAX_HEALTH, 40D).add(Attributes.MOVEMENT_SPEED, 0.0d).add(Attributes.ARMOR, 5);
     }
 

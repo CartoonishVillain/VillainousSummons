@@ -1,25 +1,19 @@
 package com.cartoonishvillain.villainoussummon.Items;
 
 import com.cartoonishvillain.villainoussummon.Entities.Projectiles.InnateCannonballProjectile;
-import net.minecraft.block.DispenserBlock;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.dispenser.DefaultDispenseItemBehavior;
-import net.minecraft.dispenser.IBlockSource;
-import net.minecraft.dispenser.IPosition;
-import net.minecraft.dispenser.ProjectileDispenseBehavior;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SnowballItem;
-import net.minecraft.item.SpawnEggItem;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.*;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SnowballItem;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -30,34 +24,34 @@ public class CannonballItem extends SnowballItem {
     }
 
     @Override
-    public ActionResult<ItemStack> use(World level, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
-        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5f, 0.4f / (random.nextFloat() * 0.4F + 0.8F));
+        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5f, 0.4f / (player.getRandom().nextFloat() * 0.4F + 0.8F));
         if(!level.isClientSide()){
             InnateCannonballProjectile innateCannonballProjectile = new InnateCannonballProjectile(level, player);
-            innateCannonballProjectile.shootFromRotation(player, player.xRot, player.yRot, 0.0f, 0.4f, 0.4f);
+            innateCannonballProjectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 0.4f, 0.4f);
             level.addFreshEntity(innateCannonballProjectile);
         }
         player.awardStat(Stats.ITEM_USED.get(this));
-        if (!player.abilities.instabuild) {
+        if (!player.getAbilities().instabuild) {
             itemstack.shrink(1);
         }
         player.getCooldowns().addCooldown(this, 2*20);
         player.causeFoodExhaustion(5);
 
 
-        return ActionResult.sidedSuccess(itemstack, level.isClientSide());
+        return InteractionResultHolder.sidedSuccess(itemstack, level.isClientSide());
     }
 
-    protected void throwFromHand(World level, PlayerEntity player, ItemStack itemstack){
-        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5f, 0.4f / (random.nextFloat() * 0.4F + 0.8F));
+    protected void throwFromHand(Level level, Player player, ItemStack itemstack){
+        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5f, 0.4f / (player.getRandom().nextFloat() * 0.4F + 0.8F));
         if(!level.isClientSide()){
             InnateCannonballProjectile innateCannonballProjectile = new InnateCannonballProjectile(level, player);
-            innateCannonballProjectile.shootFromRotation(player, player.xRot, player.yRot, 0.0f, 0.4f, 0.4f);
+            innateCannonballProjectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 0.4f, 0.4f);
             level.addFreshEntity(innateCannonballProjectile);
         }
         player.awardStat(Stats.ITEM_USED.get(this));
-        if (!player.abilities.instabuild) {
+        if (!player.getAbilities().instabuild) {
             itemstack.shrink(1);
         }
         player.getCooldowns().addCooldown(this, 2*20);
@@ -65,14 +59,14 @@ public class CannonballItem extends SnowballItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack p_77624_1_, @Nullable World p_77624_2_, List<ITextComponent> tooltip, ITooltipFlag p_77624_4_) {
+    public void appendHoverText(ItemStack p_77624_1_, @Nullable Level p_77624_2_, List<Component> tooltip, TooltipFlag p_77624_4_) {
         super.appendHoverText(p_77624_1_, p_77624_2_, tooltip, p_77624_4_);
-        tooltip.add(new StringTextComponent(TextFormatting.BLUE + "Can be used in crafting or thrown short distances"));
-        tooltip.add(new StringTextComponent(TextFormatting.RED + "May break on landing. Cannonballs are heavy and it takes some effort to throw."));
+        tooltip.add(new TextComponent(ChatFormatting.BLUE + "Can be used in crafting or thrown short distances"));
+        tooltip.add(new TextComponent(ChatFormatting.RED + "May break on landing. Cannonballs are heavy and it takes some effort to throw."));
     }
 
     @Override
-    public boolean onDroppedByPlayer(ItemStack item, PlayerEntity player) {
+    public boolean onDroppedByPlayer(ItemStack item, Player player) {
         if(!player.isCreative()) {
             if (!player.level.isClientSide()) {
                 throwFromHand(player.level, player, item);

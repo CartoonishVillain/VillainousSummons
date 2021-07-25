@@ -1,27 +1,27 @@
 package com.cartoonishvillain.villainoussummon.Entities.Turrets;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.IRangedAttackMob;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.passive.GolemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.potion.Effects;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.AbstractGolem;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
 
-public abstract class TurretTemplate extends GolemEntity implements IRangedAttackMob {
+public abstract class TurretTemplate extends AbstractGolem implements RangedAttackMob {
 
-    protected TurretTemplate(EntityType<? extends GolemEntity> p_i48569_1_, World p_i48569_2_) {
+    protected TurretTemplate(EntityType<? extends AbstractGolem> p_i48569_1_, Level p_i48569_2_) {
         super(p_i48569_1_, p_i48569_2_);
     }
 
     //They strangely could be leashed otherwise..
     @Override
-    public boolean canBeLeashed(PlayerEntity p_184652_1_) {
+    public boolean canBeLeashed(Player p_184652_1_) {
         return false;
     }
 
@@ -46,8 +46,8 @@ public abstract class TurretTemplate extends GolemEntity implements IRangedAttac
     @Override
     public void tick() {
         super.tick();
-        if(this.hasEffect(Effects.POISON)){removeEffect(Effects.POISON);}
-        if(this.hasEffect(Effects.WITHER)){removeEffect(Effects.WITHER);}
+        if(this.hasEffect(MobEffects.POISON)){removeEffect(MobEffects.POISON);}
+        if(this.hasEffect(MobEffects.WITHER)){removeEffect(MobEffects.WITHER);}
         //this line is just because of some targeting badness with the AI I encountered sometimes. (Would fire at dead targets if nothing else was around to fire at.)
         if(this.getTarget() != null && !this.getTarget().isAlive()){this.setTarget(null);}
     }

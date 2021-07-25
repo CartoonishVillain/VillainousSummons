@@ -8,26 +8,25 @@ import com.cartoonishvillain.villainoussummon.Entities.Mounts.SlimeMount;
 import com.cartoonishvillain.villainoussummon.Entities.Turrets.TurretTemplate;
 import com.cartoonishvillain.villainoussummon.Register;
 import com.cartoonishvillain.villainoussummon.VillainousSummon;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.ai.goal.GoalSelector;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.PrioritizedGoal;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.monster.SpiderEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.GoalSelector;
+import net.minecraft.world.entity.ai.goal.WrappedGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.EntityLeaveWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -39,7 +38,7 @@ public class Event {
     @SubscribeEvent
     public static void summonmount(PlayerInteractEvent.RightClickItem event){
         Boolean success = false;
-        if(!event.getWorld().isClientSide() && event.getEntityLiving() instanceof PlayerEntity && event.getPlayer() != null){
+        if(!event.getWorld().isClientSide() && event.getEntityLiving() instanceof Player && event.getPlayer() != null){
             if(event.getItemStack().getItem().equals(Register.SLIMESUMMON.get())){
             SlimeMount entity = new SlimeMount(Register.SLIMEMOUNT.get(), event.getWorld());
             entity.setPos(event.getPlayer().position().x, event.getPlayer().position().y, event.getPlayer().position().z);
@@ -89,7 +88,7 @@ public class Event {
                     ItemStack stack = event.getItemStack();
                     if(stack.hurt(1, new Random(), null)) {
                         stack.shrink(1);
-                        event.getWorld().playSound(null, event.getPos(), SoundEvents.ITEM_BREAK, SoundCategory.PLAYERS, 100, 1);
+                        event.getWorld().playSound(null, event.getPos(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 100, 1);
                     }
                 }
             }
@@ -98,26 +97,26 @@ public class Event {
 
     @SubscribeEvent
     public static void clearMount(EntityJoinWorldEvent event){
-        if(event.getEntity() instanceof PlayerEntity){
-            PlayerEntity entity = (PlayerEntity) event.getEntity();
+        if(event.getEntity() instanceof Player){
+            Player entity = (Player) event.getEntity();
             entity.stopRiding();
         }
     }
 
     @SubscribeEvent
     public static void clearMount(EntityLeaveWorldEvent event){
-        if(event.getEntity() instanceof PlayerEntity){
-            PlayerEntity entity = (PlayerEntity) event.getEntity();
+        if(event.getEntity() instanceof Player){
+            Player entity = (Player) event.getEntity();
             entity.stopRiding();
         }
     }
 
     @SubscribeEvent
     public static void Resyncer(TickEvent.PlayerTickEvent event){
-        PlayerEntity playerEntity = event.player;
+        Player playerEntity = event.player;
         if(playerEntity.tickCount == 10){
             if(playerEntity.getVehicle() instanceof SlimeMount || playerEntity.getVehicle() instanceof HorseMount){
-                if(!playerEntity.isCreative() && !playerEntity.isSpectator()){playerEntity.abilities.mayfly = false;}
+                if(!playerEntity.isCreative() && !playerEntity.isSpectator()){playerEntity.getAbilities().mayfly = false;}
                 playerEntity.stopRiding();
             }
         }
@@ -126,8 +125,8 @@ public class Event {
     @SubscribeEvent
     public static void TurretTargeter(EntityJoinWorldEvent event){
         Entity sEntity = event.getEntity();
-        if(sEntity instanceof MonsterEntity && !VillainousSummon.EXCEMPTFROMMODIFICATION.contains(sEntity.getType())){
-            MonsterEntity entity = (MonsterEntity) sEntity;
+        if(sEntity instanceof Monster && !VillainousSummon.EXCEMPTFROMMODIFICATION.contains(sEntity.getType())){
+            Monster entity = (Monster) sEntity;
             entity.targetSelector.addGoal(20, new NearestAttackableTargetGoal<>(entity, TurretTemplate.class, true));
         }
     }
@@ -137,31 +136,31 @@ public class Event {
         Entity sEntity = event.getEntity();
         if(sEntity instanceof VexMinion && !sEntity.level.isClientSide()){
             VexMinion entity = (VexMinion) sEntity;
-            Set<PrioritizedGoal> prioritizedGoals = ObfuscationReflectionHelper.getPrivateValue(GoalSelector.class, entity.targetSelector, "field_220892_d");
+            Set<WrappedGoal> prioritizedGoals = ObfuscationReflectionHelper.getPrivateValue(GoalSelector.class, entity.targetSelector, "f_25345_");
             ArrayList<Goal> toRemove = new ArrayList<>();
             if(prioritizedGoals != null) {
-                for (PrioritizedGoal prioritizedGoal : prioritizedGoals) {
+                for (WrappedGoal prioritizedGoal : prioritizedGoals) {
                     toRemove.add(prioritizedGoal.getGoal());
                 }
             }
             for(Goal goal : toRemove){
                 entity.targetSelector.removeGoal(goal);
             }
-            entity.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(entity, MonsterEntity.class, 16, true, false,  ATTACK_PREDICATE));
+            entity.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(entity, Monster.class, 16, true, false,  ATTACK_PREDICATE));
         }
         else if(sEntity instanceof BearMinion && !sEntity.level.isClientSide()){
             BearMinion entity = (BearMinion) sEntity;
-            Set<PrioritizedGoal> prioritizedGoals = ObfuscationReflectionHelper.getPrivateValue(GoalSelector.class, entity.targetSelector, "field_220892_d");
+            Set<WrappedGoal> prioritizedGoals = ObfuscationReflectionHelper.getPrivateValue(GoalSelector.class, entity.targetSelector, "f_25345_");
             ArrayList<Goal> toRemove = new ArrayList<>();
             if(prioritizedGoals != null) {
-                for (PrioritizedGoal prioritizedGoal : prioritizedGoals) {
+                for (WrappedGoal prioritizedGoal : prioritizedGoals) {
                     toRemove.add(prioritizedGoal.getGoal());
                 }
             }
             for(Goal goal : toRemove){
                 entity.targetSelector.removeGoal(goal);
             }
-            entity.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(entity, MonsterEntity.class, 16, true, false,  ATTACK_PREDICATE));
+            entity.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(entity, Monster.class, 16, true, false,  ATTACK_PREDICATE));
         }
     }
 

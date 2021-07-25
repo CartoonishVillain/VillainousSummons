@@ -1,22 +1,25 @@
 package com.cartoonishvillain.villainoussummon.Entities.Mounts;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.horse.HorseEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
-import javax.annotation.Nullable;
+public class HorseMount extends Horse{
 
-public class HorseMount extends HorseEntity{
-
-    public static AttributeModifierMap.MutableAttribute customAttributes() {
-        return MobEntity.createMobAttributes()
+    public static AttributeSupplier.Builder customAttributes() {
+        return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 22D)
                 .add(Attributes.MOVEMENT_SPEED, 0.225D)
                 .add(Attributes.JUMP_STRENGTH, 0.7D);
@@ -28,12 +31,12 @@ public class HorseMount extends HorseEntity{
 
     }
 
-    public HorseMount(EntityType<? extends HorseEntity> type, World world) {super(type, world); this.equipSaddle(SoundCategory.NEUTRAL);}
+    public HorseMount(EntityType<? extends Horse> type, Level world) {super(type, world); this.equipSaddle(SoundSource.NEUTRAL);}
 
-    @Nullable
     @Override
-    public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {return null;} // nope
-
+    public AgeableMob getBreedOffspring(ServerLevel p_149533_, AgeableMob p_149534_) {
+        return null;
+    }
 
     @Override
     protected void randomizeAttributes() { // cancel
@@ -43,16 +46,16 @@ public class HorseMount extends HorseEntity{
     public ItemStack getArmor() {return super.getArmor();}
 
     @Override
-    public boolean canMate(AnimalEntity p_70878_1_) {return false;}
+    public boolean canMate(Animal p_70878_1_) {return false;}
 
     @Override
-    public ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {return ActionResultType.PASS;}
+    public InteractionResult mobInteract(Player p_230254_1_, InteractionHand p_230254_2_) {return InteractionResult.PASS;}
 
     @Override
     public boolean canWearArmor() {return false;}
 
     @Override
-    public ActionResultType fedFood(PlayerEntity p_241395_1_, ItemStack p_241395_2_) {return  ActionResultType.SUCCESS;}
+    public InteractionResult fedFood(Player p_241395_1_, ItemStack p_241395_2_) {return  InteractionResult.SUCCESS;}
 
     @Override
     protected void followMommy() {}
@@ -70,7 +73,7 @@ public class HorseMount extends HorseEntity{
     public boolean canJump() {return true;}
 
     @Override
-    public void openInventory(PlayerEntity p_110199_1_) {}
+    public void openInventory(Player p_110199_1_) {}
 
     @Override
     protected boolean isImmobile() {return false;}
@@ -78,7 +81,7 @@ public class HorseMount extends HorseEntity{
     @Override
     protected void removePassenger(Entity p_184225_1_) {
         super.removePassenger(p_184225_1_);
-        this.remove();
+        this.remove(false);
     }
 
     @Override
@@ -87,7 +90,7 @@ public class HorseMount extends HorseEntity{
     @Override
     public void tick() {
         super.tick();
-        if (tickCount % 100 == 0) {if (this.getControllingPassenger() == null) this.remove();}
+        if (tickCount % 100 == 0) {if (this.getControllingPassenger() == null) this.remove(false);}
     }
 
 
