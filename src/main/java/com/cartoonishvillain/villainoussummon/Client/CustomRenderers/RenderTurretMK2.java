@@ -13,6 +13,8 @@ import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
+import static com.cartoonishvillain.villainoussummon.Client.RenderManager.TURRETMK2;
+
 
 public class RenderTurretMK2 extends MobRenderer<BaseTurretsMK2, TurretMk2Model<BaseTurretsMK2>> {
 
@@ -23,7 +25,7 @@ public class RenderTurretMK2 extends MobRenderer<BaseTurretsMK2, TurretMk2Model<
     protected static final ResourceLocation SCOUT = new ResourceLocation(VillainousSummon.MOD_ID, "textures/entity/scoutturretmk2.png");
 
     public RenderTurretMK2(EntityRendererProvider.Context p_174304_) {
-        super(p_174304_, new TurretMk2Model<>(Minecraft.getInstance().getEntityModels().bakeLayer(RenderManager.TURRETMK2)), 0.5f);
+        super(p_174304_, new TurretMk2Model<>(p_174304_.bakeLayer(TURRETMK2)), 0.5f);
     }
 
 

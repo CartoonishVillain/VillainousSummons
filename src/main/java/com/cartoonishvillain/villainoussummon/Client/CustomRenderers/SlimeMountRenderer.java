@@ -11,12 +11,14 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.SlimeRenderer;
 import net.minecraft.resources.ResourceLocation;
 
+import static com.cartoonishvillain.villainoussummon.Client.RenderManager.SLIMEMOUNT;
+
 public class SlimeMountRenderer extends MobRenderer<SlimeMount, SlimeMountModel<SlimeMount>> {
 
     protected static final ResourceLocation TEXTURE = new ResourceLocation(VillainousSummon.MOD_ID, "textures/entity/slimemount.png");
 
     public SlimeMountRenderer(EntityRendererProvider.Context p_174304_) {
-        super(p_174304_, new SlimeMountModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(RenderManager.SLIMEMOUNT)), 1f);
+        super(p_174304_, new SlimeMountModel<>(p_174304_.bakeLayer(SLIMEMOUNT)), 1f);
     }
 
 

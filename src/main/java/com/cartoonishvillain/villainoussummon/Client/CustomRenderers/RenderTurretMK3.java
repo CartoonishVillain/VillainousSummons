@@ -14,15 +14,17 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-public class RenderTurretMK3 extends MobRenderer<BaseTurretsMK3, TurretMk3Model<BaseTurretsMK3>> {
+import static com.cartoonishvillain.villainoussummon.Client.RenderManager.TURRETMK3;
 
+
+public class RenderTurretMK3 extends MobRenderer<BaseTurretsMK3, TurretMk3Model<BaseTurretsMK3>> {
     protected static final ResourceLocation BALLISTA = new ResourceLocation(VillainousSummon.MOD_ID, "textures/entity/ballistaturretmk3.png");
     protected static final ResourceLocation CANNON = new ResourceLocation(VillainousSummon.MOD_ID, "textures/entity/cannonturretmk3.png");
     protected static final ResourceLocation ARCANE = new ResourceLocation(VillainousSummon.MOD_ID, "textures/entity/arcaneturretmk3.png");
     protected static final ResourceLocation CREATIVE = new ResourceLocation(VillainousSummon.MOD_ID, "textures/entity/creativeturret.png");
 
     public RenderTurretMK3(EntityRendererProvider.Context p_174304_) {
-        super(p_174304_, new TurretMk3Model<>(Minecraft.getInstance().getEntityModels().bakeLayer(RenderManager.TURRETMK3)), 0.5f);
+        super(p_174304_, new TurretMk3Model<>(p_174304_.bakeLayer(TURRETMK3)), 0.5f);
     }
 
 

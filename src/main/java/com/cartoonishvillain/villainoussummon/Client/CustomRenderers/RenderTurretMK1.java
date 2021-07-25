@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
+import static com.cartoonishvillain.villainoussummon.Client.RenderManager.TURRETMK1;
 
 public class RenderTurretMK1 extends MobRenderer<BaseTurretsMK1, TurretMK1Model<BaseTurretsMK1>> {
 
@@ -18,7 +19,7 @@ public class RenderTurretMK1 extends MobRenderer<BaseTurretsMK1, TurretMK1Model<
     protected static final ResourceLocation SLIMETEXTURE = new ResourceLocation(VillainousSummon.MOD_ID, "textures/entity/slimeturretmk1.png");
 
     public RenderTurretMK1(EntityRendererProvider.Context p_174304_) {
-        super(p_174304_, new TurretMK1Model<>(Minecraft.getInstance().getEntityModels().bakeLayer(RenderManager.TURRETMK1)), 0.5f);
+        super(p_174304_, new TurretMK1Model<>(p_174304_.bakeLayer(TURRETMK1)), 0.5f);
     }
 
 
