@@ -36,6 +36,7 @@ public class ArrowTurretMk2 extends BaseTurretsMK2 implements RangedAttackMob {
     public void performRangedAttack(LivingEntity p_82196_1_, float p_82196_2_) {
         if(p_82196_1_ != null && p_82196_1_.isAlive()){
         TurretArrow arrowEntity = new TurretArrow(this.level, this);
+            arrowEntity.setSecondsOnFire(0);
         double initheight = p_82196_1_.getEyeY() - 1.1f;
         double x = p_82196_1_.getX() - this.getX();
         double y = initheight - arrowEntity.getY();
