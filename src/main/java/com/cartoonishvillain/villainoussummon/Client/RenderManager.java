@@ -33,7 +33,6 @@ public class RenderManager {
         event.registerLayerDefinition(TURRETMK3, TurretMk3Model::createLayer);
     }
 
-    //Still doesn't properly register renderers.
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event){
         event.registerEntityRenderer(Register.SLIMEMOUNT.get(), SlimeMountRenderer::new);
