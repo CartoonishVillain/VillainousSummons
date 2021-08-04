@@ -27,6 +27,6 @@ public class WolfMinion extends Wolf {
     @Override
     public void tick() {
         super.tick();
-        if(tickCount >= 120*20) this.remove(false);
+        if(tickCount >= 120*20) this.remove(RemovalReason.KILLED);
     }
 }

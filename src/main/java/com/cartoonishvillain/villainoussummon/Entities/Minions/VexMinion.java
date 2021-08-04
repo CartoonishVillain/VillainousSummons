@@ -33,7 +33,7 @@ public class VexMinion extends Vex {
     @Override
     public void tick() {
         super.tick();
-        if (tickCount >= 60 * 20) this.remove(false);
+        if (tickCount >= 60 * 20) this.remove(RemovalReason.KILLED);
 
     }
 }

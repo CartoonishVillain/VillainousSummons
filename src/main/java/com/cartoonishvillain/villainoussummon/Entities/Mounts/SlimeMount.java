@@ -174,7 +174,7 @@ public class SlimeMount extends Horse{
     @Override
     protected void removePassenger(Entity p_184225_1_) {
         super.removePassenger(p_184225_1_);
-        this.remove(false);
+        this.remove(RemovalReason.KILLED);
     }
 
     @Override
@@ -185,7 +185,7 @@ public class SlimeMount extends Horse{
         super.tick();
 
 
-        if (tickCount % 100 == 0) {if (this.getControllingPassenger() == null) this.remove(false);}
+        if (tickCount % 100 == 0) {if (this.getControllingPassenger() == null) this.remove(RemovalReason.KILLED);}
 
 //        if(!this.level.isClientSide()){
             falling = this.getY() < prev_y;

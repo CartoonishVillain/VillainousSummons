@@ -65,7 +65,7 @@ public class InnateCannonballProjectile extends ThrowableItemProjectile {
             itemEntity.setPos(p_213868_1_.getEntity().getX(), p_213868_1_.getEntity().getY(), p_213868_1_.getEntity().getZ());
             level.addFreshEntity(itemEntity);
         }else if(!this.level.isClientSide()){p_213868_1_.getEntity().playSound(SoundEvents.ANVIL_DESTROY, 1f, 0.5f);}
-        this.remove(false);
+        this.remove(RemovalReason.DISCARDED);
     }
 
     @Override
@@ -82,6 +82,6 @@ public class InnateCannonballProjectile extends ThrowableItemProjectile {
             itemEntity.setPos(this.getX(), this.getY(), this.getZ());
             level.addFreshEntity(itemEntity);
         } else if(!this.level.isClientSide()){this.playSound(SoundEvents.ANVIL_DESTROY, 1f, 0.5f);}
-        this.remove(false);
+        this.remove(RemovalReason.DISCARDED);
     }
 }

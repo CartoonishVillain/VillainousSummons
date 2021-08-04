@@ -46,14 +46,14 @@ public class SlimeballProjectile extends ThrowableItemProjectile {
         if(entity instanceof LivingEntity && !entity.level.isClientSide() && this.getOwner() != null){
             ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10*20, 0));
             entity.hurt(DamageSource.thrown(this.getOwner(), null), 0);
-            this.remove(false);
+            this.remove(RemovalReason.DISCARDED);
         }
 
     }
 
     protected void onHitBlock(BlockHitResult p_230299_1_) {
         super.onHitBlock(p_230299_1_);
-        this.remove(false);
+        this.remove(RemovalReason.DISCARDED);
     }
 
     @Override

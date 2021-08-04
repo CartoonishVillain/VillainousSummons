@@ -55,7 +55,7 @@ public class BearMinion extends PolarBear {
     @Override
     public void tick() {
         super.tick();
-        if(tickCount >= 90*20) this.remove(false);
+        if(tickCount >= 90*20) this.remove(RemovalReason.KILLED);
     }
 
 }

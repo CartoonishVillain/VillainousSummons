@@ -38,6 +38,6 @@ public class BallistaArrow extends Arrow {
     @Override
     protected void onHitBlock(BlockHitResult p_230299_1_) {
         super.onHitBlock(p_230299_1_);
-        this.remove(false);
+        this.remove(RemovalReason.DISCARDED);
     }
 }

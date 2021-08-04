@@ -40,6 +40,6 @@ public class CannonballProjectile extends ThrowableItemProjectile {
         super.onHit(p_70227_1_);
         Vec3 vector3d = p_70227_1_.getLocation();
         this.level.explode(this, vector3d.x, vector3d.y, vector3d.z, 3, Explosion.BlockInteraction.NONE);
-        this.remove(false);
+        this.remove(RemovalReason.DISCARDED);
     }
 }
